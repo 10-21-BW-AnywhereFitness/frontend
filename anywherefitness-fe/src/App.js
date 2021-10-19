@@ -5,6 +5,7 @@ import NavBar from './components/NavBar'
 import Home from "./pages/home"
 import Client from "./pages/client"
 import Instructor from './pages/instructor';
+import Footer from './components/Footer'
 
 
 function App() {
@@ -32,6 +33,10 @@ function App() {
         <Route path='/instructor'> 
           <Instructor />
         </Route>
+
+        <div className='footer-container'>
+          <Footer />
+        </div>
       </div>
     </div>
   );
