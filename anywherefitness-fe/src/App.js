@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import ClientLanding from "./components/landing/ClientLanding"
+
+//to be removed
+const fakeClient = {
+  "user_id": 2,
+  "username": "pineapple48",
+  "role_id": 1
+}
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ClientLanding userInfo={fakeClient} />
     </div>
   );
 }
