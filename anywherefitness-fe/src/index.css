@@ -19,7 +19,7 @@ h1{
 
 .nav-bar{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   background-color: rgb(40, 40, 43);
   border-radius: 10px 10px;

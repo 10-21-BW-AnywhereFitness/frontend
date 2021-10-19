@@ -1,21 +1,16 @@
 import React from 'react'
-
+import { Link, Route, Switch } from 'react-router-dom';
 
 
 
 
 export default function NavBar(){
     return (
-        <div className='logo-bar'>
-            <h1>Anywhere Fitness</h1>
-                <div className='nav-bar'>
-                    <a href='#'>Home</a>
-                    <a href='#'>About</a>
-                    <a href='#'>Contact</a>
-                    <a href='#'>Log In</a>
-                   
-                </div>
+        <div className='nav-bar'>
+            <Link to='/home'>Home</Link>
+            <Link to='/about'>About</Link>
+            <Link to='/contact'>Contact</Link>
+            <Link to='/login'>Log In</Link>
         </div>
-
     )
 }
