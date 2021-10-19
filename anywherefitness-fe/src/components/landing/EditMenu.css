@@ -1,14 +1,14 @@
-.dropdown {
+.triple-dot {
     position: relative;
     display: inline-block;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 14px;
   }
   
-  .dropdown > a, .dropdown > button {
+  .triple-dot > a, .triple-dot > button {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 14px;
-    background-color: white;
+    background-color: inherit;
     border: none;
     padding: 6px 8px 6px 12px;
     display: inline-block;
@@ -16,7 +16,7 @@
     text-decoration: none;
   }
   
-  .dropdown input[type=checkbox] {
+  .triple-dot input[type=checkbox] {
     position: absolute;
     display: block;
     top: 0px;
@@ -27,14 +27,14 @@
     opacity: 0;
   }
   
-  .dropdown input[type=checkbox]:checked {
+  .triple-dot input[type=checkbox]:checked {
     position: fixed;
     z-index:+0;
     top: 0px; left: 0px; 
     right: 0px; bottom: 0px;
   }
   
-  .dropdown ul {
+  .triple-dot ul {
     position: absolute;
     top: 18px;
     border: 1px solid #ccc;
@@ -47,29 +47,33 @@
     box-shadow: 0 3px 6px rgba(0,0,0,.175);
   }
   
-  .dropdown input[type=checkbox]:checked + ul {
+  .triple-dot input[type=checkbox]:checked + ul {
     display: block;
   }
-  
-  .dropdown ul li {
+
+  .triple-dot input[type=checkbox]:checked + .hidden {
+    display: none;
+  }
+
+  .triple-dot ul li {
     display: block;
     padding: 6px 20px;
     white-space: nowrap;
     min-width: 100px;
   }
   
-  .dropdown ul li:hover {
+  .triple-dot ul li:hover {
     background-color: #F5F5F5;
     cursor: pointer;
   }
   
-  .dropdown ul li a {
+  .triple-dot ul li a {
     text-decoration: none;
     display: block;
     color: black
   }
   
-  .dropdown .divider {
+  .triple-dot .divider {
     height: 1px;
     margin: 9px 0;
     overflow: hidden;
