@@ -1,5 +1,5 @@
 * {
-  border: 1px solid red;
+  
 }
 
 body {
@@ -41,15 +41,15 @@ a{
 .content-container{
   display: flex;
   flex-direction: row;
-  
+  justify-content: space-around;
 }
 
-.text-container{
-  
+.text-content{
+  border: 1px solid red;
 }
 
 .workout-img{
-  
+  border: 1px solid red;
 }
 
 .workout-img img{
