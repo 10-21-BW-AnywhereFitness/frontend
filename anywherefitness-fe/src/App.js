@@ -1,11 +1,10 @@
 import React from 'react'
 import { Route, Link } from 'react-router-dom';
-import NavBar from './Components/NavBar'
-import Home from './Components/Home'
-import About from './Components/About'
-import Contact from './Components/Contact'
 import './App.css';
-import NavBar from './Components/NavBar'
+import NavBar from './components/NavBar'
+import Home from "./pages/home"
+import Client from "./pages/client"
+import Instructor from './pages/instructor';
 
 
 function App() {
@@ -15,25 +14,24 @@ function App() {
         <div className='logo-bar'>
           <Link to='/home'>
             <h1>Anywhere Fitness</h1>
+            <p>App.js</p>
           </Link>
         </div>     
         <NavBar />
       </header>   
 
       <div className='main-content'>
-        <Route exact path='/home'> 
+        <Route exact path='/'> 
           <Home />
         </Route>
 
-        <Route path='/about'> 
-          <About />
+        <Route path='/client'> 
+          <Client />
         </Route>
 
-        <Route path='/contact'> 
-          <Contact />
+        <Route path='/instructor'> 
+          <Instructor />
         </Route>
-
-        {/*  route to login page for users & instructors */}
       </div>
     </div>
   );
