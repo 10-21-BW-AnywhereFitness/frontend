@@ -15,10 +15,10 @@ function Class({info}){
                 <p>Time: {info.class_time}</p>
             </div>
             <div className='info'>
-            <p>Length: {info.class_duration}</p>
-            <p>Intensity: {info.class_intensity}</p>
+                <p>Length: {info.class_duration}</p>
+                <p>Intensity: {info.class_intensity}</p>
             </div>
-            <p>Partipants: {info.class_registered_clients}/{info.class_max}</p>
+                <p>Partipants: {info.class_registered_clients}/{info.class_max}</p> 
         </div>
     )
 }
