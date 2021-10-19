@@ -32,3 +32,13 @@ a{
   color: antiquewhite;
   text-decoration: none;
 }
+
+.main-content{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.workout1{
+  width: 50%;
+  height: 50%;
+}
