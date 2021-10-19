@@ -16,21 +16,23 @@ function App() {
             <h1>Anywhere Fitness</h1>
           </Link>
         </div>     
+        <NavBar />
       </header>   
-      <NavBar />
 
       <div className='main-content'>
-        <Route> 
-          <Home exact path='/' />
+        <Route exact path='/home'> 
+          <Home />
         </Route>
 
-        <Route> 
-          <About exact path='/about' />
+        <Route path='/about'> 
+          <About />
         </Route>
 
-        <Route> 
-          <Contact exact path='/contact' />
+        <Route path='/contact'> 
+          <Contact />
         </Route>
+
+        {/*  route to login page for users & instructors */}
       </div>
     </div>
   );

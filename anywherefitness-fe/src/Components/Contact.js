@@ -4,6 +4,7 @@ export default function Contact(){
     return (
         <div className='contact-container'>
             <p>Contact us:</p>
-            </div>
+            <p>1-800-Anytime</p>
+        </div>
     )
 }

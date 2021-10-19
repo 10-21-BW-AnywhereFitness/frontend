@@ -1,5 +1,5 @@
 import React from 'react'
-import NavBar from './NavBar'
+
 
 export default function Home(){
     return (
@@ -7,8 +7,6 @@ export default function Home(){
             <div className='content-container'>
             <p>lorem ipsum</p>
             </div>
-            
-
         </div>
     )
 }
