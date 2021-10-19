@@ -51,12 +51,13 @@ const ClientLanding = props => {
         <div className="client-landing">
             {/** Navbar */}
             <h2>Welcome {username}!</h2>
-            <button onClick={searchOnClick} >Search Classes</button>
+            <button onClick={searchOnClick}>Search classes</button>
+            <h2>Your Classes</h2>
             <div className="client-classes">
                 {reservedClasses.length === 0
                     ? <h2>Getting your classes...</h2>
                     : reservedClasses.map(_class => (
-                        <ClassDetails key={_class.class_id} _class={_class} />
+                        <ClassDetails key={_class.class_id} _class={_class} instructor={false}/>
                     ))
                 }
             </div>
