@@ -1,6 +1,11 @@
+* {
+  border: 1px solid red;
+}
+
 body {
   
   font-family: 'Scheherazade New', serif;
+  
 }
 
 code {
@@ -33,12 +38,21 @@ a{
   text-decoration: none;
 }
 
-.main-content{
+.content-container{
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
+  
 }
 
-.workout1{
+.text-container{
+  
+}
+
+.workout-img{
+  
+}
+
+.workout-img img{
   width: 50%;
   height: 50%;
 }
