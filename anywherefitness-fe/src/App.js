@@ -1,8 +1,8 @@
 import React from 'react';
 import {Route, Link, Switch} from 'react-router-dom';
-import Classes from './components/Classes';
+import Classes from './pages/Classes';
 import './App.css';
-import SearchBar from './components/SearchBar';
+import Search from './pages/Search';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
           <Classes />
         </Route>
         <Route path='/search'>
-          <SearchBar />
+          <Search />
         </Route>
       </Switch>
     </div>

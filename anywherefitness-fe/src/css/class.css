@@ -1,0 +1,8 @@
+.class-cont{
+    /* width: 30%; */
+    border: solid darkgray 2px;
+    margin: .5%;
+    display: flex;
+    flex-direction: column;
+}
+

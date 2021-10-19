@@ -1,6 +1,8 @@
 import React,{useEffect, useState} from "react";
-import Class from "./Class";
+import Class from "../components/Class";
 import axios from 'axios';
+import JSONDATA from '../data/MOCK_DATA.json'
+import '../css/classes.css';
 
 function Classes(){
     const [classes, setClasses] = useState([]);
@@ -19,8 +21,8 @@ function Classes(){
     }, []);
 
     return(
-        <div>
-            {classes.map((item, idx) => {
+        <div className='classes-cont'>
+            {JSONDATA.map((item, idx) => { //classes goes here
                 return (
                     <Class key={idx} info={item}/>
                 )

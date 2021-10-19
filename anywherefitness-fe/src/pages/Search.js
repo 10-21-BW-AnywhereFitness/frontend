@@ -1,9 +1,10 @@
 import JSONDATA from '../data/MOCK_DATA.json';
 import { useState } from 'react';
-import '../css/searchBar.css'
+import '../css/search.css'
+import Class from '../components/Class';
 
 const initialDifficulty = [];
-function SearchBar(){
+function Search(){
     const [searchTerm, setSearchTerm] = useState('');
     const [difficulty, setDifficulty] = useState(initialDifficulty);
     const difficultyHandle = e => {
@@ -17,36 +18,38 @@ function SearchBar(){
         }
     }
     return(
-        <div className='searchBar'>
-            <div>
+        <div className='main-cont'>
+            <div className='input-cont'>
                 <div>
-                    <input type='text' placeholder='Search Classes...' onChange={e => {setSearchTerm(e.target.value)}}/>
+                    <input className='search' type='text' placeholder='Search Classes...' onChange={e => {setSearchTerm(e.target.value)}}/>
                 </div>
-                <div>
+                <div className='intense'>
                     <input type='checkbox' id='low' name='intensityBox' value='low' onChange={difficultyHandle}/>
                         <label for='low'>Low</label>
                     <input type='checkbox' id='medium' name='intensityBox' value='medium' onChange={difficultyHandle}/>
                         <label for='medium'>Medium</label>
                     <input type='checkbox' id='high' name='intensityBox' value='high' onChange={difficultyHandle}/>
                         <label for='high'>High</label>
-                        
                 </div>
             </div>
+            <div className='classes-cont'>
             {JSONDATA.filter((val) => {
                 if(searchTerm === '' && difficulty === initialDifficulty){
                     return val
-                }else if(val.class_name.toLowerCase().includes(searchTerm.toLowerCase()) && difficulty.includes(val.class_intensity)){
+                }else if(difficulty.includes(val.class_intensity) || val.class_name.toLowerCase().includes(searchTerm.toLowerCase())){
                     return val
                 }
-            }).map((val, key) => {
+            })
+            .map((val, key) => {
                 return (
-                    <div className='class' key={key}>
-                        <p>{val.class_name}</p>
+                    <div className='class-cont' key={key}>
+                        <Class info={val} key={key}/>
                     </div>
                 )
             })}
+            </div>
         </div>
     );
 }
 
-export default SearchBar;
+export default Search;

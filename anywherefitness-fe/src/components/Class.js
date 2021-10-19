@@ -1,11 +1,12 @@
 import React from "react";
+import '../css/class.css'
 
 function Class({info}){
     if (!info){
         return <h3>Fetching your class details</h3>
     }
     return(
-        <div>
+        <div className='class-cont'>
             <div className='title'>
                 <h2>{info.class_name}</h2>
                 <h3>Type: {info.class_type}</h3>
