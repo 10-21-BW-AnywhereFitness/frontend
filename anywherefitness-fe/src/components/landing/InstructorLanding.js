@@ -72,7 +72,7 @@ const InstructorLanding = props => {
             {teachingClasses.length === 0
                 ? <h2>Getting your classes...</h2>
                 : teachingClasses.map(_class => (
-                    <ClassDetails key={_class.class_id} _class={_class} instructor={true}/>
+                    <ClassDetails key={_class.class_id} _class={_class} instructor={true} />
                 ))
             }
         </div>

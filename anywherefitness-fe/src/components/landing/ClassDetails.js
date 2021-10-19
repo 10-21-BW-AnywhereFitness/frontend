@@ -1,4 +1,4 @@
-import React from "react";
+import EditDropdown from "./EditDropdown";
 
 const ClassDetails = props => {
     const { _class, instructor } = props;
@@ -7,7 +7,7 @@ const ClassDetails = props => {
         <div>
             <h3>{_class.class_name}</h3>
             {/* edit/remove dropdown menu to be added */}
-            {instructor && <div>...</div>}
+            {instructor && <EditDropdown />}
             <p>{_class.class_type}</p>
             <p>Date: {_class.class_date}</p>
             <p>Starts at: {_class.class_time}</p>
