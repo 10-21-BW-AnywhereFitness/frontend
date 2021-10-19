@@ -6,23 +6,14 @@ const initialDifficulty = [];
 function SearchBar(){
     const [searchTerm, setSearchTerm] = useState('');
     const [difficulty, setDifficulty] = useState(initialDifficulty);
-    // const updateDifficulty = (inten) => {
-    //     if (difficulty.includes(inten)){
-    //         setDifficulty(difficulty.filter(item => item.value !== inten));
-    //     }else{
-    //         setDifficulty([...difficulty, inten])
-    //     }
-    // }
     const difficultyHandle = e => {
-        // const value = e.target.value;
-        // updateDifficulty(value)
         const isChecked = e.target.checked;
         if(isChecked){
             setDifficulty([...difficulty, e.target.value]);
         }else{
-            const idx = difficulty.indexOf(e.target.value);
-            setDifficulty(difficulty.splice(idx, 1));
-            // setDifficulty(difficulty);
+            setDifficulty(difficulty.filter((val) => {
+                return val !== e.target.value;
+            }));
         }
     }
     return(
