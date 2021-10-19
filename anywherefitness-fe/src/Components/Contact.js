@@ -1,5 +1,9 @@
 import React from 'react'
 
 export default function Contact(){
-    return null
+    return (
+        <div className='contact-container'>
+            <p>Contact us:</p>
+            </div>
+    )
 }
