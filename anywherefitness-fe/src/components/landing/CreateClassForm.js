@@ -47,6 +47,7 @@ const CreateClassForm = props => {
                         maxLength="128"
                         value={newClass.class_name}
                         onChange={onChange}
+                        required
                     />
                 </label>
                 <label>Class Type
@@ -56,16 +57,18 @@ const CreateClassForm = props => {
                         maxLength="32"
                         value={newClass.class_type}
                         onChange={onChange}
+                        required
                     />
                 </label>
                 <label>Date
                     <input 
                         type="date" 
                         name="class_date"
-                        value={newClass.class_date}
+                        value={newClass.class_date.replace(/\//g, "-")}
                         min={minDate}
                         max={maxDate}
                         onChange={onChange}
+                        required
                     />
                 </label>
                 <label>Time
@@ -74,19 +77,22 @@ const CreateClassForm = props => {
                         name="class_time"
                         value={classTime}
                         onChange={onChange}
+                        required
                     />
                 </label>
                 <label>Duration (Minutes)
                     <input 
-                        type="text" 
+                        type="number" 
                         name="class_duration"
-                        maxLength="3"
+                        min="15"
+                        max="360"
                         value={newClass.class_duration}
                         onChange={onChange}
+                        required
                     />
                 </label>
                 <label>Intensity
-                    <select name="class_intensity" value={newClass.class_intensity} onChange={onChange}>
+                    <select name="class_intensity" value={newClass.class_intensity} onChange={onChange} required>
                         <option value="">---Choose Intensity---</option>
                         <option value="low">Low</option>
                         <option value="medium">Medium</option>
@@ -100,24 +106,25 @@ const CreateClassForm = props => {
                         maxLength="32"
                         value={newClass.class_location}
                         onChange={onChange}
+                        required
                     />
                 </label>
-                <label>Participants
+                <label>Participants (optional)
                     <input 
-                        type="text" 
+                        type="number" 
                         name="class_registered_clients"
-                        maxLength="32"
                         value={newClass.class_registered_clients}
                         onChange={onChange}
                     />
                 </label>
                 <label>Capacity
                     <input 
-                        type="text" 
+                        type="number" 
                         name="class_max"
-                        maxLength="3"
+                        max="300"
                         value={newClass.class_max}
                         onChange={onChange}
+                        required
                     />
                 </label>
                 <button type="submit">Submit</button>
