@@ -16,6 +16,15 @@ const CreateClassForm = props => {
     const minDate = getDate('min');
     const maxDate = getDate('max');
 
+    const getTime = () => {
+        if (newClass.class_time === '') {
+            return '18:00';
+        }
+        return newClass.class_time;
+    }
+
+    const classTime = getTime();
+
     const onChange = evt => {
         const { name, value } = evt.target;
         const newValue = name === 'class_date' ? value.replace(/-/g, "/") : value;
@@ -63,7 +72,7 @@ const CreateClassForm = props => {
                     <input 
                         type="time" 
                         name="class_time"
-                        value={newClass.class_type}
+                        value={classTime}
                         onChange={onChange}
                     />
                 </label>

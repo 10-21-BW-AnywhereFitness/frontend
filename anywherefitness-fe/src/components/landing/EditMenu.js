@@ -3,8 +3,7 @@ import "./EditMenu.css"
 
 const EditMenu = props => {
     const { class_id, remove, popupOpen } = props;
-    
-    console.log(popupOpen);
+
     const removeOnlick = () => {
         remove(class_id);
     }

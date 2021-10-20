@@ -1,26 +1,43 @@
-import React from "react";
-import ClientLanding from "./components/landing/ClientLanding"
-import InstructorLanding from "./components/landing/InstructorLanding";
+import React from 'react'
+import { Route, Link } from 'react-router-dom';
+import './App.css';
+import NavBar from './components/NavBar'
+import Home from "./pages/home"
+import Client from "./pages/client"
+import Instructor from './pages/instructor';
+import Footer from './components/Footer'
 
-//to be removed
-const fakeClient = {
-  "user_id": 2,
-  "username": "pineapple48",
-  "role_id": 1
-}
-
-//to be removed
-const fakeInstructor = {
-  "user_id": 3,
-  "username": "instructor47",
-  "role_id": 0
-}
 
 function App() {
-
   return (
     <div className="App">
-      <InstructorLanding userInfo={fakeInstructor} />
+      <header className='header'>
+        <div className='logo-bar'>
+          <Link to='/home'>
+            <h1>Anywhere Fitness</h1>
+            <p>App.js</p>
+          </Link>
+        </div>     
+        <NavBar />
+      </header>   
+
+      <div className='main-content'>
+        <Route exact path='/'> 
+          <Home />
+        </Route>
+
+        <Route path='/client'> 
+          <Client />
+        </Route>
+
+        <Route path='/instructor'> 
+          <Instructor />
+        </Route>
+
+        <div className='footer-container'>
+          <Footer />
+        </div>
+      </div>
     </div>
   );
 }
