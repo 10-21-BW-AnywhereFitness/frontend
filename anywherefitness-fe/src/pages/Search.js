@@ -1,4 +1,5 @@
 import JSONDATA from '../data/MOCK_DATA.json';
+import {NavLink} from 'react-router-dom';
 import { useState } from 'react';
 import '../css/search.css'
 import Class from '../components/Class';
@@ -24,15 +25,24 @@ function Search(){
                     <input className='search' type='text' placeholder='Search Classes...' onChange={e => {setSearchTerm(e.target.value)}}/>
                 </div>
                 <div className='intense'>
-                    <input type='checkbox' id='low' name='intensityBox' value='low' onChange={difficultyHandle}/>
-                        <label for='low'>Low</label>
-                    <input type='checkbox' id='medium' name='intensityBox' value='medium' onChange={difficultyHandle}/>
-                        <label for='medium'>Medium</label>
-                    <input type='checkbox' id='high' name='intensityBox' value='high' onChange={difficultyHandle}/>
-                        <label for='high'>High</label>
+                    <label for='low' className='checkbox-cont'>
+                        <p>Low</p>
+                        <input type='checkbox' id='low' name='intensityBox' value='low' onChange={difficultyHandle}/>
+                        <span className='checkmark'></span>
+                    </label>
+                    <label for='medium' className='checkbox-cont'>
+                        <p>Medium</p>
+                        <input type='checkbox' id='medium' name='intensityBox' value='medium' onChange={difficultyHandle}/>
+                        <span className='checkmark'></span>
+                    </label>
+                    <label for='high' className='checkbox-cont'>
+                        <p>High</p>
+                        <input type='checkbox' id='high' name='intensityBox' value='high' onChange={difficultyHandle}/>
+                        <span className='checkmark'></span>
+                    </label>
                 </div>
             </div>
-            <div className='classes-cont'>
+            <div className='searched-cont'>
             {JSONDATA.filter((val) => {
                 if(searchTerm === '' && difficulty === initialDifficulty){
                     return val
@@ -42,8 +52,10 @@ function Search(){
             })
             .map((val, key) => {
                 return (
-                    <div className='class-cont' key={key}>
-                        <Class info={val} key={key}/>
+                    <div className='classes-cont' key={key}>
+                        <NavLink to={`/client`}>
+                            <Class info={val} key={key}/>
+                        </NavLink>
                     </div>
                 )
             })}

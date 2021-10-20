@@ -1,5 +1,6 @@
 import React from "react";
 import '../css/class.css'
+import {Link} from 'react-router-dom'
 
 function Class({info}){
     if (!info){
@@ -20,6 +21,7 @@ function Class({info}){
                 <p>Intensity: {info.class_intensity}</p>
             </div>
                 <p>Partipants: {info.class_registered_clients}/{info.class_max}</p> 
+                <Link to={``}>Class info</Link>
         </div>
     )
 }
