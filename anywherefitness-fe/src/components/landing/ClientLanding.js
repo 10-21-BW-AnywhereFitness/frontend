@@ -30,7 +30,7 @@ const ClientLanding = props => {
     const [reservedClasses, setReservedClasses] = useState([]);
 
     useEffect(() => {
-        // axios.get(`/api/client/${user_id}/classes`)
+        // axios.get(`https://buildweek-backend-10-21.herokuapp.com/api/client/${user_id}/classes`)
         //     .then(res => {
         //         setReservedClasses(res.data);
         //     })

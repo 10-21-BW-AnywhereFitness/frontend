@@ -91,6 +91,15 @@ const CreateClassForm = props => {
                         required
                     />
                 </label>
+                <label>Class Description (optional)
+                    <input 
+                        type="text" 
+                        name="class_description"
+                        maxLength="500"
+                        value={newClass.class_description}
+                        onChange={onChange}
+                    />
+                </label>
                 <label>Intensity
                     <select name="class_intensity" value={newClass.class_intensity} onChange={onChange} required>
                         <option value="">---Choose Intensity---</option>

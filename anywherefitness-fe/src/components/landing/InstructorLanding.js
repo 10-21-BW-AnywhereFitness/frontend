@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 import ClassDetails from "./ClassDetails";
 import Popup from "./Popup";
 import CreateClassForm from "./CreateClassForm";
@@ -42,6 +43,7 @@ const initialClass = {
     "class_date": "", 
     "class_time": "", 
     "class_duration": "", 
+    "class_description": "",
     "class_intensity": "", 
     "class_location": "",
     "class_registered_clients": "",
@@ -53,8 +55,9 @@ const InstructorLanding = props => {
     const [teachingClasses, setTeachingClasses] = useState([]);
     const [openPopup, setOpenPopup] = useState(false);
     const [newClass, setNewClass] = useState(initialClass);
+
     useEffect(() => {
-        // axios.get(`/api/instructor/${user_id}/classes`)
+        // axios.get(`https://buildweek-backend-10-21.herokuapp.com/api/instructor/${user_id}/classes`)
         //     .then(res => {
         //         setTeachingClasses(res.data);
         //     })
@@ -66,9 +69,19 @@ const InstructorLanding = props => {
         setTeachingClasses(fakeTeachingClasses);
     }, [])
 
+    const postNewClass = newClassSubmit => {
+        // axios.post(`https://buildweek-backend-10-21.herokuapp.com/api/instructor/${user_id}/classes/`)
+        //     .then(res => {
+        //         setTeachingClasses([res.data, ...teachingClasses]);
+        //     }).catch(err => {
+        //         console.log(err);
+        //     }).finally(() => {
+        //         setNewClass(initialClass);
+        //     })
+    }
+
     const searchOnClick = () => {
-        //Go to Classes Page
-        console.log('clicked search');;
+        // history.push(search page link);
     }
 
     const createOnClick = () => {
@@ -80,11 +93,28 @@ const InstructorLanding = props => {
     }
 
     const createOnSubmit = () => {
-        console.log('submitted!');
+        const newClassSubmit = {
+            "class_name": newClass.class_name.trim(), 
+            "class_type": newClass.class_type.trim(), 
+            "class_date": newClass.class_date, 
+            "class_time": newClass.class_time, 
+            "class_duration": newClass.class_duration,
+            "class_description": newClass.class_description.trim(),
+            "class_intensity": newClass.class_intensity, 
+            "class_location": newClass.class_location.trim(),
+            "class_registered_clients": newClass.class_registered_clients,
+            "class_max": newClass.class_max
+        }
+
+        postNewClass(newClassSubmit);
     }
 
-    const removeClass = (class_id) => {
-        // axios.delete(`/api/instructor/${user_id}/classes/${class_id}`)
+    const editClass = class_id => {
+
+    }
+    
+    const removeClass = class_id => {
+        // axios.delete(`https://buildweek-backend-10-21.herokuapp.com/api/instructor/${user_id}/classes/${class_id}`)
         //     .then(res => {
         //         console.log(res);
         //     }).catch(err => {
@@ -115,6 +145,7 @@ const InstructorLanding = props => {
                             key={_class.class_id} 
                             _class={_class} 
                             instructor={true} 
+                            edit={editClass}
                             remove={removeClass}
                             popupOpen={openPopup}
                         />

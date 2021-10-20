@@ -2,9 +2,13 @@ import React from "react";
 import "./EditMenu.css"
 
 const EditMenu = props => {
-    const { class_id, remove, popupOpen } = props;
+    const { class_id, edit, remove, popupOpen } = props;
 
-    const removeOnlick = () => {
+    const editOnClick = () => {
+        edit(class_id);
+    }
+
+    const removeOnClick = () => {
         remove(class_id);
     }
 
@@ -19,8 +23,8 @@ const EditMenu = props => {
             <label>
                 <input type="checkbox" />
                 <ul className={ulClassName}>
-                    <li>Edit</li>
-                    <li onClick={removeOnlick}>Remove</li>
+                    <li onClick={editOnClick}>Edit</li>
+                    <li onClick={removeOnClick}>Remove</li>
                 </ul>
             </label>
         </span>
