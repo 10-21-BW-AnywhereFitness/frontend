@@ -1,6 +1,7 @@
 import React from "react";
 import ClientLanding from "../components/landing/ClientLanding";
 
+//to be removed
 const fakeClient = {
   user_id: 2,
   username: "pineapple48",
