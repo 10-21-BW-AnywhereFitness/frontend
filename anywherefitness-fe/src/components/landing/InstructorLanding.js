@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { token, API_URL_BASE, PATH_INSTRUCTOR_GET_CLASSES, PATH_INSTRUCTOR_ADD_CLASS, PATH_INSTRUCTOR_DELETE_CLASS_BY_ID } from './contants';
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import ClassDetails from "./ClassDetails";
 import Popup from "./Popup";
-import CreateClassForm from "./CreateClassForm";
+import ClassForm from "./ClassForm";
 
 // import SearchPage
 
@@ -43,10 +44,9 @@ const initialClass = {
     "class_date": "", 
     "class_time": "", 
     "class_duration": "", 
-    "class_description": "",
     "class_intensity": "", 
     "class_location": "",
-    "class_registered_clients": "",
+    "class_registered_clients" : "",
     "class_max": ""
 }
 
@@ -55,29 +55,53 @@ const InstructorLanding = props => {
     const [teachingClasses, setTeachingClasses] = useState([]);
     const [openPopup, setOpenPopup] = useState(false);
     const [newClass, setNewClass] = useState(initialClass);
+    const [editMode, setEditMode] = useState(false);
 
     useEffect(() => {
-        // axios.get(`https://buildweek-backend-10-21.herokuapp.com/api/instructor/${user_id}/classes`)
-        //     .then(res => {
-        //         setTeachingClasses(res.data);
-        //     })
-        //     .catch(err => {
-        //         console.log(err);
-        //     })
+        axios.create({
+            baseURL: API_URL_BASE,
+            headers:{
+                authorization:token,
+            }
+        }).get(PATH_INSTRUCTOR_GET_CLASSES)
+            .then(res => {
+                setTeachingClasses(res.data);
+            })
+            .catch(err => {
+                console.log(err);
+            })
 
         // Testing with fake classes
-        setTeachingClasses(fakeTeachingClasses);
+        // setTeachingClasses(fakeTeachingClasses);
     }, [])
 
+    const getClassIndex = class_id => {
+        return teachingClasses.findIndex(aClass => aClass.class_id === class_id);
+    }
+
     const postNewClass = newClassSubmit => {
-        // axios.post(`https://buildweek-backend-10-21.herokuapp.com/api/instructor/${user_id}/classes/`)
-        //     .then(res => {
-        //         setTeachingClasses([res.data, ...teachingClasses]);
-        //     }).catch(err => {
-        //         console.log(err);
-        //     }).finally(() => {
-        //         setNewClass(initialClass);
-        //     })
+        console.log(newClassSubmit);
+        axios.create({
+            baseURL: API_URL_BASE,
+            headers:{
+                authorization:token,
+            }
+        }).post(PATH_INSTRUCTOR_ADD_CLASS, newClassSubmit)
+            .then(res => {
+                setTeachingClasses([res.data, ...teachingClasses]);
+                setNewClass(initialClass);
+                setOpenPopup(false);
+            }).catch(err => {
+                console.log(err);
+            })
+    }
+
+    const editClass = class_id => {
+        const classes = [...teachingClasses];
+        classes.splice(getClassIndex(class_id), 1, newClass)
+        setTeachingClasses(classes);
+        setNewClass(initialClass);
+        setOpenPopup(false);
     }
 
     const searchOnClick = () => {
@@ -85,42 +109,51 @@ const InstructorLanding = props => {
     }
 
     const createOnClick = () => {
+        setEditMode(false);
+        setNewClass(initialClass);
         setOpenPopup(true);
     }
 
-    const createOnChange = (name, value) => {
+    const editOnClick = class_id => {
+        setEditMode(true);
+        setNewClass(teachingClasses[getClassIndex(class_id)]);
+        setOpenPopup(true);
+    }
+
+    const onChange = (name, value) => {
         setNewClass({ ...newClass, [name]: value });
     }
 
-    const createOnSubmit = () => {
+    const onSubmit = class_id => {
         const newClassSubmit = {
-            "class_name": newClass.class_name.trim(), 
-            "class_type": newClass.class_type.trim(), 
+            "class_name": "test", 
+            "class_type": "weight",
             "class_date": newClass.class_date, 
             "class_time": newClass.class_time, 
-            "class_duration": newClass.class_duration,
-            "class_description": newClass.class_description.trim(),
+            "class_duration": parseInt(newClass.class_duration),
             "class_intensity": newClass.class_intensity, 
             "class_location": newClass.class_location.trim(),
-            "class_registered_clients": newClass.class_registered_clients,
-            "class_max": newClass.class_max
+            "class_registered_clients": newClass.class_registered_clients ? parseInt(newClass.class_registered_clients) : 0,
+            "class_max": parseInt(newClass.class_max)
         }
 
-        postNewClass(newClassSubmit);
-    }
-
-    const editClass = class_id => {
-
+        editMode ? editClass(class_id) : postNewClass(newClassSubmit)
     }
     
     const removeClass = class_id => {
-        // axios.delete(`https://buildweek-backend-10-21.herokuapp.com/api/instructor/${user_id}/classes/${class_id}`)
-        //     .then(res => {
-        //         console.log(res);
-        //     }).catch(err => {
-        //         console.log(err);
-        //     })
-        console.log(`removed ${class_id}`);
+        axios.create({
+            baseURL: API_URL_BASE,
+            headers:{
+                authorization:token,
+            }
+        }).delete(PATH_INSTRUCTOR_DELETE_CLASS_BY_ID + class_id)
+            .then(res => {
+                const classes = [...teachingClasses];
+                classes.splice(getClassIndex(class_id), 1)
+                setTeachingClasses(classes);
+            }).catch(err => {
+                console.log(err);
+            })
     }
 
     return (
@@ -129,10 +162,11 @@ const InstructorLanding = props => {
             <button onClick={searchOnClick}>Search classes</button>
             <button onClick={createOnClick}>Create a class</button>
             <Popup trigger={openPopup} open={setOpenPopup}>
-                <CreateClassForm 
+                <h3>{editMode ? 'Edit Class' : 'Create A Class'}</h3>
+                <ClassForm 
                     newClass={newClass} 
-                    change={createOnChange} 
-                    submit={createOnSubmit} 
+                    change={onChange} 
+                    submit={onSubmit} 
                     open={setOpenPopup}
                 />
             </Popup>
@@ -145,7 +179,7 @@ const InstructorLanding = props => {
                             key={_class.class_id} 
                             _class={_class} 
                             instructor={true} 
-                            edit={editClass}
+                            edit={editOnClick}
                             remove={removeClass}
                             popupOpen={openPopup}
                         />

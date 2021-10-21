@@ -1,12 +1,18 @@
 import React from "react";
 
-const CreateClassForm = props => {
+const ClassForm = props => {
     const { newClass, change, submit, open } = props;
 
-    const getDate = minmax => {
-        const date = new Date();
+    const getDate = (type, value) => {
+        let date = new Date();
         const offset = date.getTimezoneOffset()
-        if(minmax === 'max') {
+        if (type === 'value') {
+            if (value) {
+                date = new Date(value);
+            } else {
+                return "";
+            }
+        } else if (type === 'max') {
             date.setFullYear(date.getFullYear() + 1);
         }
         const newDate = new Date(date.getTime() - (offset*60000));
@@ -15,30 +21,38 @@ const CreateClassForm = props => {
     
     const minDate = getDate('min');
     const maxDate = getDate('max');
+    const dateValue = getDate('value', newClass.class_date);
 
-    const getTime = () => {
-        if (newClass.class_time === '') {
-            return '18:00';
-        }
-        return newClass.class_time;
-    }
+    // const getTime = () => {
+    //     if (newClass.class_time === '') {
+    //         return '00:00';
+    //     }
+    //     return newClass.class_time;
+    // }
 
-    const classTime = getTime();
+    // const classTime = getTime();
 
     const onChange = evt => {
         const { name, value } = evt.target;
-        const newValue = name === 'class_date' ? value.replace(/-/g, "/") : value;
+        let newValue = value;
+        if (name === 'class_date') {
+            const date = new Date(value + 'T00:00:00');
+            newValue = date.toLocaleDateString('en-US');
+        }
         change(name, newValue);
     }
 
     const onSubmit = evt => {
         evt.preventDefault();
-        submit();
+        if (newClass.class_id){
+            submit(newClass.class_id);
+        } else {
+            submit();
+        }
     }
 
     return (
         <div>
-            <h3>Create A Class</h3>
             <form onSubmit={onSubmit}>
                 <label>Class Name
                     <input 
@@ -64,7 +78,7 @@ const CreateClassForm = props => {
                     <input 
                         type="date" 
                         name="class_date"
-                        value={newClass.class_date.replace(/\//g, "-")}
+                        value={dateValue}
                         min={minDate}
                         max={maxDate}
                         onChange={onChange}
@@ -75,7 +89,7 @@ const CreateClassForm = props => {
                     <input 
                         type="time" 
                         name="class_time"
-                        value={classTime}
+                        value={newClass.class_time}
                         onChange={onChange}
                         required
                     />
@@ -89,15 +103,6 @@ const CreateClassForm = props => {
                         value={newClass.class_duration}
                         onChange={onChange}
                         required
-                    />
-                </label>
-                <label>Class Description (optional)
-                    <input 
-                        type="text" 
-                        name="class_description"
-                        maxLength="500"
-                        value={newClass.class_description}
-                        onChange={onChange}
                     />
                 </label>
                 <label>Intensity
@@ -122,6 +127,7 @@ const CreateClassForm = props => {
                     <input 
                         type="number" 
                         name="class_registered_clients"
+                        min="0"
                         value={newClass.class_registered_clients}
                         onChange={onChange}
                     />
@@ -131,6 +137,7 @@ const CreateClassForm = props => {
                         type="number" 
                         name="class_max"
                         max="300"
+                        min="5"
                         value={newClass.class_max}
                         onChange={onChange}
                         required
@@ -143,4 +150,4 @@ const CreateClassForm = props => {
     );
 }
 
-export default CreateClassForm;
+export default ClassForm;

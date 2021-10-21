@@ -64,6 +64,7 @@
   padding: 6px 20px;
   white-space: nowrap;
   min-width: 100px;
+  text-align: left;
 }
 
 .triple-dot ul li:hover {
