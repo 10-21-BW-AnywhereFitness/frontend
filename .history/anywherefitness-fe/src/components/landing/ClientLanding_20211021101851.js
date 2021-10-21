@@ -60,7 +60,7 @@ const ClientLanding = (props) => {
       .client_get_all_reserved_classes()
       .then((res) => {
         console.log("client_get_all_reserved_classes, res.data = ", res.data);
-        setReservedClasses(res.data);
+        setReservedClasses()
       })
       .catch((error) => {
         console.log(("client_get_all_reserved_classes, error = ", error));
@@ -92,10 +92,6 @@ const ClientLanding = (props) => {
         )}
       </div> */}
       {availableClasses.map((each) => {
-        return <p>{JSON.stringify(each)}</p>;
-      })}
-      <p>===========================================</p>
-      {reservedClasses.map((each) => {
         return <p>{JSON.stringify(each)}</p>;
       })}
     </div>

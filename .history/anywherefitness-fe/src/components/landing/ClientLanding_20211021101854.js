@@ -94,10 +94,6 @@ const ClientLanding = (props) => {
       {availableClasses.map((each) => {
         return <p>{JSON.stringify(each)}</p>;
       })}
-      <p>===========================================</p>
-      {reservedClasses.map((each) => {
-        return <p>{JSON.stringify(each)}</p>;
-      })}
     </div>
   );
 };
