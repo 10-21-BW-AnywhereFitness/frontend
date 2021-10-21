@@ -8,6 +8,7 @@ import Instructor from "./components/pages/instructor";
 import Footer from "./components/Footer";
 import Login from "./components/pages/login";
 import Signup from "./components/pages/signup";
+import { Button } from 'reactstrap';
 
 function App() {
   return (
@@ -43,6 +44,9 @@ function App() {
           <Signup />
         </Route>
 
+
+
+        <Button>Test Button</Button>
         <div className="footer-container">
           <Footer />
         </div>

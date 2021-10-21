@@ -1,10 +1,12 @@
 import React from 'react'
+import { CardFooter } from 'reactstrap';
 
 export default function Footer(){
     return (
         <div className='contact-container'>
-            <p>Contact us:</p>
-            <p>1-800-Anytime</p>
+            <CardFooter className='center'>
+            <p className="text-center">Copyright &copy; 2021 Anywhere Fitness</p>
+            </CardFooter>
         </div>
     )
 }
