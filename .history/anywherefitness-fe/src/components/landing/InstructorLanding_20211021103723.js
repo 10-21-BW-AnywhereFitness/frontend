@@ -162,7 +162,7 @@ const InstructorLanding = (props) => {
   const onSubmit = (class_id) => {
     const newClassSubmit = {
       class_name: newClass.class_name,
-      class_type: newClass.class_type,
+      class_type: "weight",
       class_date: newClass.class_date,
       class_time: newClass.class_time,
       class_duration: parseInt(newClass.class_duration),
