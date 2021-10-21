@@ -29,4 +29,6 @@ const SearchClass = (props) => {
   );
 };
 
+function Comp
+
 export default SearchClass;

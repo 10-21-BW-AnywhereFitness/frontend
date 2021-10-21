@@ -18,11 +18,7 @@ const SearchClass = (props) => {
       {availableClasses.map((each) => {
         <div>
           <p>{JSON.stringify(each)}</p>
-          <button onClick={
-              ()=>{
-
-              }
-          }></button>
+          <button onClick=></button>
         </div>;
       })}
     </div>

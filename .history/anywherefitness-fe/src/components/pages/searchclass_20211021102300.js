@@ -15,16 +15,9 @@ const SearchClass = (props) => {
   return (
     <div>
       <h2>SearchClass.js</h2>
-      {availableClasses.map((each) => {
-        <div>
-          <p>{JSON.stringify(each)}</p>
-          <button onClick={
-              ()=>{
-
-              }
-          }></button>
-        </div>;
-      })}
+      <div>
+          
+      </div>
     </div>
   );
 };

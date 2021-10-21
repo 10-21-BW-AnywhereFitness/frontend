@@ -19,9 +19,7 @@ const SearchClass = (props) => {
         <div>
           <p>{JSON.stringify(each)}</p>
           <button onClick={
-              ()=>{
-
-              }
+              ()
           }></button>
         </div>;
       })}
