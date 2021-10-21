@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ClassDetails from "./ClassDetails";
 import * as api from "../../api/api_calls";
+import { Button, Card } from 'reactstrap';
 // import SearchPage
 
 //to be removed
@@ -75,29 +76,32 @@ const ClientLanding = (props) => {
   return (
     <div className="client-landing">
       {/** Navbar */}
-      <h2>Welcome {username}!</h2>
-      <button onClick={searchOnClick}>Search classes</button>
-      <h2>Your Classes</h2>
-      {/* <div className="client-classes">
-        {reservedClasses.length === 0 ? (
-          <h2>Getting your classes...</h2>
-        ) : (
-          reservedClasses.map((_class) => (
-            <ClassDetails
-              key={_class.class_id}
-              _class={_class}
-              instructor={false}
-            />
-          ))
-        )}
-      </div> */}
-      {availableClasses.map((each) => {
-        return <p>{JSON.stringify(each)}</p>;
-      })}
-      <p>===========================================</p>
-      {reservedClasses.map((each) => {
-        return <p>{JSON.stringify(each)}</p>;
-      })}
+      <Card>
+        <h2 className="text-center">Welcome {username}!</h2>
+        <Button onClick={searchOnClick} className='btn btn-dark btn-md'>Search Classes</Button>
+        <h2 className="text-center">Your Classes</h2>
+        {/* <div className="client-classes">
+          {reservedClasses.length === 0 ? (
+            <h2>Getting your classes...</h2>
+          ) : (
+            reservedClasses.map((_class) => (
+              <ClassDetails
+                key={_class.class_id}
+                _class={_class}
+                instructor={false}
+              />
+            ))
+          )}
+        </div> */}
+        {availableClasses.map((each) => {
+          return <p>{JSON.stringify(each)}</p>;
+        })}
+        <p>===========================================</p>
+        {reservedClasses.map((each) => {
+          return <p>{JSON.stringify(each)}</p>;
+        })}
+      </Card>
+      
     </div>
   );
 };
