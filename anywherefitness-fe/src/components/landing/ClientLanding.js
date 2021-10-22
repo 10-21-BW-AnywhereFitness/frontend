@@ -4,16 +4,15 @@ import * as api from "../../api/api_calls";
 import styled from "styled-components";
 import * as con from "../../constant/constant";
 
-// import SearchPage
-
 const DIV_LINK = styled.div`
   background-color: black;
   color: blue;
 `;
 
 const ClientLanding = (props) => {
+
   const [reservedClasses, setReservedClasses] = useState([]);
-  const [availableClasses, set_availableClasses] = useState([]);
+  // const [availableClasses, set_availableClasses] = useState([]);
 
   useEffect(() => {
     api
@@ -39,7 +38,7 @@ const ClientLanding = (props) => {
 
   return (
     <div className="client-landing">
-      <h2>{con.getWelcomeMessage()}</h2>
+      <h2 className="text-center">{con.getWelcomeMessage()}</h2>
       <h2>user_id = {con.getUserID()}!</h2>
       <p>token = {con.getToken()}</p>
       <DIV_LINK>
@@ -48,7 +47,7 @@ const ClientLanding = (props) => {
       <DIV_LINK>
         <Link to="/client/reserved">Reserved classes</Link>
       </DIV_LINK>
-      <h2>Your Classes</h2>
+      <p>===============Available Classes=============</p>
       {availableClasses.map((each) => {
         return <p>{JSON.stringify(each)}</p>;
       })}
@@ -56,12 +55,6 @@ const ClientLanding = (props) => {
       {reservedClasses.map((each) => {
         return <p>{JSON.stringify(each)}</p>;
       })}
-      {/* // <h2 className="text-center">Welcome {username}!</h2>
-      //{" "}
-      <Button onClick={searchOnClick} color="secondary" size="sm">
-        Search Classes
-      </Button>
-      // <h2 className="text-center">Your Classes</h2> */}
     </div>
   );
 };

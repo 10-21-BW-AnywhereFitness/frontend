@@ -7,8 +7,6 @@ import ClassForm from "./ClassForm";
 import * as api from "../../api/api_calls";
 import { Button, Card } from "reactstrap";
 
-// import SearchPage
-
 const initialClass = {
   class_name: "",
   class_type: "",
@@ -22,7 +20,7 @@ const initialClass = {
 };
 
 const InstructorLanding = (props) => {
-  const { username, user_id } = props.userInfo;
+  const { username } = props.userInfo;
   const [teachingClasses, setTeachingClasses] = useState([]);
   const [openPopup, setOpenPopup] = useState(false);
   const [newClass, setNewClass] = useState(initialClass);
@@ -152,37 +150,3 @@ const InstructorLanding = (props) => {
 };
 
 export default InstructorLanding;
-
-/*
-  <h2 className="text-center">Welcome {username}!</h2>
-          
-          <Button onClick={searchOnClick} className='btn btn-sm'>Search classes</Button>
-          <Button onClick={createOnClick} className='btn btn-sm'>Create a class</Button>
-          <Popup trigger={openPopup} open={setOpenPopup}>
-          <h3>{editMode ? "Edit Class" : "Create A Class"}</h3>
-          <ClassForm
-            newClass={newClass}
-            change={onChange}
-            submit={onSubmit}
-            open={setOpenPopup}
-          />
-          </Popup>
-          <h2>Your Classes</h2>
-          <div className="instructor-classes">
-            {teachingClasses.length === 0 ? (
-              <h2>Getting your classes...</h2>
-            ) : (
-              teachingClasses.map((_class) => (
-                <ClassDetails
-                  key={_class.class_id}
-                  _class={_class}
-                  instructor={true}
-                  edit={editOnClick}
-                  remove={removeClass}
-                  popupOpen={openPopup}
-                />
-              ))
-            )}
-          </div>
->>>>>>> main
-*/
