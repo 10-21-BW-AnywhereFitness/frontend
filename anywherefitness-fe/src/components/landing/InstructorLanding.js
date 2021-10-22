@@ -1,43 +1,10 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { useHistory } from "react-router-dom";
 import ClassDetails from "./ClassDetails";
 import Popup from "./Popup";
 import ClassForm from "./ClassForm";
 import * as api from "../../api/api_calls";
 import { Button, Card } from 'reactstrap';
-
-// import SearchPage
-
-//to be removed
-const fakeTeachingClasses = [
-  {
-    user_id: 4,
-    class_id: 3,
-    class_name: "Ride through the Alps",
-    class_type: "Spin",
-    class_date: "2021-10-15T07:00:00.000Z",
-    class_time: "09:00:00",
-    class_duration: 60,
-    class_intensity: "medium",
-    class_location: "San Francisco",
-    class_registered_clients: 2,
-    class_max: 35,
-  },
-  {
-    user_id: 4,
-    class_id: 2,
-    class_name: "Relaxing Yoga",
-    class_type: "Yoga",
-    class_date: "2021-10-21T07:00:00.000Z",
-    class_time: "18:00:00",
-    class_duration: 60,
-    class_intensity: "low",
-    class_location: "Berkeley",
-    class_registered_clients: 3,
-    class_max: 20,
-  },
-];
 
 const initialClass = {
   class_name: "",
@@ -52,7 +19,7 @@ const initialClass = {
 };
 
 const InstructorLanding = (props) => {
-  const { username, user_id } = props.userInfo;
+  const { username } = props.userInfo;
   const [teachingClasses, setTeachingClasses] = useState([]);
   const [openPopup, setOpenPopup] = useState(false);
   const [newClass, setNewClass] = useState(initialClass);
@@ -153,18 +120,18 @@ const InstructorLanding = (props) => {
           <Button onClick={searchOnClick} className='btn btn-sm'>Search classes</Button>
           <Button onClick={createOnClick} className='btn btn-sm'>Create a class</Button>
           <Popup trigger={openPopup} open={setOpenPopup}>
-          <h3>{editMode ? "Edit Class" : "Create A Class"}</h3>
-          <ClassForm
-            newClass={newClass}
-            change={onChange}
-            submit={onSubmit}
-            open={setOpenPopup}
-          />
+            <h3>{editMode ? "Edit Class" : "Create A Class"}</h3>
+            <ClassForm
+              newClass={newClass}
+              change={onChange}
+              submit={onSubmit}
+              open={setOpenPopup}
+            />
           </Popup>
           <h2>Your Classes</h2>
           <div className="instructor-classes">
             {teachingClasses.length === 0 ? (
-              <h2>Getting your classes...</h2>
+              <h2>You don't have any classes scheduled</h2>
             ) : (
               teachingClasses.map((_class) => (
                 <ClassDetails
