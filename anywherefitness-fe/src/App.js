@@ -15,9 +15,9 @@ function App() {
     <div className="App">
       <header className="header">
         <div className="logo-bar">
-          <Link to="/home" style={{ textDecoration: 'none' }}>
+          <Link to="/" style={{ textDecoration: 'none' }}>
             <h1>Anywhere Fitness</h1>
-            <p>App.js</p>
+            
           </Link>
         </div>
         <NavBar />

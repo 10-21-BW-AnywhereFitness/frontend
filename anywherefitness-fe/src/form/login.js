@@ -8,7 +8,7 @@ import {
   setRole,
 } from "../constant/constant";
 import { useHistory } from "react-router-dom";
-import { Button } from 'reactstrap';
+
 
 const Container = styled.div`
   border: solid 1px black;
@@ -78,7 +78,7 @@ export default function LoginForm(props) {
             onChange={cb_onChange}
           />
         </label>
-        <Button size='small' color='secondary'>Submit</Button>
+        <button>Submit</button>
       </Form>
     </Container>
   );

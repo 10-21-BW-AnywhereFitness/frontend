@@ -10,7 +10,7 @@ const fakeInstructor = {
 const Instructor = (props) => {
   return (
     <div>
-      <InstructorLanding userInfo={fakeInstructor} />
+      {/* <InstructorLanding userInfo={fakeInstructor} /> */}
     </div>
   );
 };
