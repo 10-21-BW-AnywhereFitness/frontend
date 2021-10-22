@@ -6,6 +6,15 @@ function ClassCard({info}){
     if (!info){
         return <h3>Fetching your class details</h3>
     }
+    const reserveClass = id => {
+        api
+        .client_make_a_reservation_by_id(id)
+        .then((res) => {
+            console.log("client_make_a_reservation_by_id res.data = ", res.data);
+        })
+            .catch((error) => {
+            console.log("client_make_a_reservation_by_id, error = ", error);
+        });
     return(
         <div className='class-cont'>
             <div className='title'>
@@ -21,7 +30,7 @@ function ClassCard({info}){
                 <p>Intensity: {info.class_intensity}</p>
             </div>
                 <p>Partipants: {info.class_registered_clients}/{info.class_max}</p> 
-                <Link to={``}>Class info</Link>
+                <button onClick={reserveClass(info.class_id)}>Reserve Class</button>
         </div>
     )
 }
