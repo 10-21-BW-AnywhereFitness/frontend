@@ -1,11 +1,4 @@
 import React, { useState, useEffect } from "react";
-import {
-  token,
-  API_URL_BASE,
-  PATH_INSTRUCTOR_GET_CLASSES,
-  PATH_INSTRUCTOR_ADD_CLASS,
-  PATH_INSTRUCTOR_DELETE_CLASS_BY_ID,
-} from "./contants";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import ClassDetails from "./ClassDetails";
@@ -65,24 +58,6 @@ const InstructorLanding = (props) => {
   const [editMode, setEditMode] = useState(false);
 
   useEffect(() => {
-    // axios
-    //   .create({
-    //     baseURL: API_URL_BASE,
-    //     headers: {
-    //       authorization: token,
-    //     },
-    //   })
-    //   .get(PATH_INSTRUCTOR_GET_CLASSES)
-    //   .then((res) => {
-    //     setTeachingClasses(res.data);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-
-    // Testing with fake classes
-    // setTeachingClasses(fakeTeachingClasses);
-
     api
       .instructor_get_all_classes()
       .then((res) => {
@@ -98,27 +73,7 @@ const InstructorLanding = (props) => {
     return teachingClasses.findIndex((aClass) => aClass.class_id === class_id);
   };
 
-  //   const postNewClass = (newClassSubmit) => {
-  //     console.log(newClassSubmit);
-  //     axios
-  //       .create({
-  //         baseURL: API_URL_BASE,
-  //         headers: {
-  //           authorization: token,
-  //         },
-  //       })
-  //       .post(PATH_INSTRUCTOR_ADD_CLASS, newClassSubmit)
-  //       .then((res) => {
-  //         setTeachingClasses([res.data, ...teachingClasses]);
-  //         setNewClass(initialClass);
-  //         setOpenPopup(false);
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //       });
-  //   };
   const postNewClass = (newClassSubmit) => {
-    console.log(newClassSubmit);
     api
       .instructor_add_one_class(newClassSubmit)
       .then((res) => {
@@ -178,14 +133,8 @@ const InstructorLanding = (props) => {
   };
 
   const removeClass = (class_id) => {
-    axios
-      .create({
-        baseURL: API_URL_BASE,
-        headers: {
-          authorization: token,
-        },
-      })
-      .delete(PATH_INSTRUCTOR_DELETE_CLASS_BY_ID + class_id)
+    api
+      .instructor_delete_class_by_id(class_id)
       .then((res) => {
         const classes = [...teachingClasses];
         classes.splice(getClassIndex(class_id), 1);
@@ -213,7 +162,7 @@ const InstructorLanding = (props) => {
       <h2>Your Classes</h2>
       <div className="instructor-classes">
         {teachingClasses.length === 0 ? (
-          <h2>Getting your classes...</h2>
+          <h2>You don't have any classes scheduled.</h2>
         ) : (
           teachingClasses.map((_class) => (
             <ClassDetails
