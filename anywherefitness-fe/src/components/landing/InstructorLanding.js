@@ -1,42 +1,9 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { useHistory } from "react-router-dom";
 import ClassDetails from "./ClassDetails";
 import Popup from "./Popup";
 import ClassForm from "./ClassForm";
 import * as api from "../../api/api_calls";
-
-// import SearchPage
-
-//to be removed
-const fakeTeachingClasses = [
-  {
-    user_id: 4,
-    class_id: 3,
-    class_name: "Ride through the Alps",
-    class_type: "Spin",
-    class_date: "2021-10-15T07:00:00.000Z",
-    class_time: "09:00:00",
-    class_duration: 60,
-    class_intensity: "medium",
-    class_location: "San Francisco",
-    class_registered_clients: 2,
-    class_max: 35,
-  },
-  {
-    user_id: 4,
-    class_id: 2,
-    class_name: "Relaxing Yoga",
-    class_type: "Yoga",
-    class_date: "2021-10-21T07:00:00.000Z",
-    class_time: "18:00:00",
-    class_duration: 60,
-    class_intensity: "low",
-    class_location: "Berkeley",
-    class_registered_clients: 3,
-    class_max: 20,
-  },
-];
 
 const initialClass = {
   class_name: "",
@@ -51,7 +18,7 @@ const initialClass = {
 };
 
 const InstructorLanding = (props) => {
-  const { username, user_id } = props.userInfo;
+  const { username } = props.userInfo;
   const [teachingClasses, setTeachingClasses] = useState([]);
   const [openPopup, setOpenPopup] = useState(false);
   const [newClass, setNewClass] = useState(initialClass);
