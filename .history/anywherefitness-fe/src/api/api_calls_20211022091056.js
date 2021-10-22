@@ -35,7 +35,7 @@ export const client_make_a_reservation_by_id = (id) => {
     "PATH_CLIENT_MAKE_A_CLASS_RESERVATION + id =",
     con.PATH_CLIENT_MAKE_A_CLASS_RESERVATION + id
   );
-  console.log("getToken = ", con.getToken());
+  console.log("getToken")
   return axiosWithAuth().post(
     con.PATH_CLIENT_MAKE_A_CLASS_RESERVATION + id,
     {}

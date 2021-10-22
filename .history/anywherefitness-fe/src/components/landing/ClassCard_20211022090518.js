@@ -21,6 +21,7 @@ function ClassCard({ info }) {
     return (
       <div className="class-cont">
         <div className="title">
+            
           <h2>{info.class_name}</h2>
           <h3>Type: {info.class_type}</h3>
         </div>
@@ -29,7 +30,6 @@ function ClassCard({ info }) {
           <p>Time: {info.class_time}</p>
         </div>
         <div className="info">
-          <p>Class ID : {info.class_id}</p>
           <p>Length: {info.class_duration}</p>
           <p>Intensity: {info.class_intensity}</p>
         </div>

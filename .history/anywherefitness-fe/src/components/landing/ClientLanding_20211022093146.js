@@ -48,6 +48,19 @@ const ClientLanding = (props) => {
         <Link to="/client/reserved">Reserved classes</Link>
       </DIV_LINK>
       <h2>Your Classes</h2>
+      {/* <div className="client-classes">
+        {reservedClasses.length === 0 ? (
+          <h2>Getting your classes...</h2>
+        ) : (
+          reservedClasses.map((_class) => (
+            <ClassDetails
+              key={_class.class_id}
+              _class={_class}
+              instructor={false}
+            />
+          ))
+        )}
+      </div> */}
       {availableClasses.map((each) => {
         return <p>{JSON.stringify(each)}</p>;
       })}

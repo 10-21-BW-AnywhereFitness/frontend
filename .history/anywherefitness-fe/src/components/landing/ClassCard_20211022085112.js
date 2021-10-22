@@ -6,7 +6,7 @@ function ClassCard({ info }) {
   const cb_onClick = () => {
     //reserveClass(info.class_id)
     api
-      .client_make_a_reservation_by_id(info.class_id)
+      .client_make_a_reservation_by_id(id)
       .then((res) => {
         console.log("client_make_a_reservation_by_id res.data = ", res.data);
       })
@@ -29,7 +29,6 @@ function ClassCard({ info }) {
           <p>Time: {info.class_time}</p>
         </div>
         <div className="info">
-          <p>Class ID : {info.class_id}</p>
           <p>Length: {info.class_duration}</p>
           <p>Intensity: {info.class_intensity}</p>
         </div>

@@ -29,7 +29,7 @@ function ClassCard({ info }) {
           <p>Time: {info.class_time}</p>
         </div>
         <div className="info">
-          <p>Class ID : {info.class_id}</p>
+          <p>Class ID : {info}</p>
           <p>Length: {info.class_duration}</p>
           <p>Intensity: {info.class_intensity}</p>
         </div>

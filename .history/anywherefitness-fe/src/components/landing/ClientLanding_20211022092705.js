@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import * as api from "../../api/api_calls";
 import styled from "styled-components";
-import * as con from "../../constant/constant";
+import * as con from "../../co"
 // import SearchPage
 
 const DIV_LINK = styled.div`
@@ -36,11 +36,15 @@ const ClientLanding = (props) => {
       });
   }, []);
 
+  // const searchOnClick = () => {
+  //   //Go to Search Page
+  //   console.log("clicked search");
+  // };
+
   return (
     <div className="client-landing">
       {/** Navbar */}
-      <h2>{con.getWelcomeMessage()}</h2>
-      <h2>user_id = {con.getUserID()}!</h2>
+      <h2>Welcome {username}!</h2>
       <DIV_LINK>
         <Link to="/client/search">Search classes</Link>
       </DIV_LINK>
@@ -48,6 +52,19 @@ const ClientLanding = (props) => {
         <Link to="/client/reserved">Reserved classes</Link>
       </DIV_LINK>
       <h2>Your Classes</h2>
+      {/* <div className="client-classes">
+        {reservedClasses.length === 0 ? (
+          <h2>Getting your classes...</h2>
+        ) : (
+          reservedClasses.map((_class) => (
+            <ClassDetails
+              key={_class.class_id}
+              _class={_class}
+              instructor={false}
+            />
+          ))
+        )}
+      </div> */}
       {availableClasses.map((each) => {
         return <p>{JSON.stringify(each)}</p>;
       })}

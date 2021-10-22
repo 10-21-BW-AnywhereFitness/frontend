@@ -4,7 +4,7 @@ import ClientLanding from "../landing/ClientLanding";
 const Client = (props) => {
   return (
     <div>
-      <ClientLanding />
+      <ClientLanding userInfo={fakeClient} />
     </div>
   );
 };

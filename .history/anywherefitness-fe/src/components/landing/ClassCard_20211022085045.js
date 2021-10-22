@@ -4,15 +4,16 @@ import * as api from "../../api/api_calls";
 
 function ClassCard({ info }) {
   const cb_onClick = () => {
-    //reserveClass(info.class_id)
-    api
-      .client_make_a_reservation_by_id(info.class_id)
-      .then((res) => {
-        console.log("client_make_a_reservation_by_id res.data = ", res.data);
-      })
-      .catch((error) => {
-        console.log("client_make_a_reservation_by_id, error = ", error);
-      });
+    const reserveClass = (id) => {
+      api
+        .client_make_a_reservation_by_id(id)
+        .then((res) => {
+          console.log("client_make_a_reservation_by_id res.data = ", res.data);
+        })
+        .catch((error) => {
+          console.log("client_make_a_reservation_by_id, error = ", error);
+        });
+    };
   };
 
   if (!info) {
@@ -29,14 +30,13 @@ function ClassCard({ info }) {
           <p>Time: {info.class_time}</p>
         </div>
         <div className="info">
-          <p>Class ID : {info.class_id}</p>
           <p>Length: {info.class_duration}</p>
           <p>Intensity: {info.class_intensity}</p>
         </div>
         <p>
           Partipants: {info.class_registered_clients}/{info.class_max}
         </p>
-        <button onClick={cb_onClick}>Reserve Class</button>
+        <button onClick={reserveClass(info.class_id)}>Reserve Class</button>
       </div>
     );
   }
