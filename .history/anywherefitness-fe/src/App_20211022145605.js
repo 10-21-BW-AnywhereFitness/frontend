@@ -13,6 +13,7 @@ import InstructorSearch from "./components/pages/instructorSearch";
 import Reserved from "./components/pages/Reserved";
 import ContextObject from "./context/context";
 import Logout from "./components/pages/logout";
+import * as api from "./api/api_calls";
 
 function App() {
   const initialState = {

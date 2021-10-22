@@ -14,7 +14,7 @@ const Logout = (props) => {
     con.setWelcomeMessage("");
     setGlobalStateToDefault();
     history.push("/");
-  }, []);
+  }, [null]);
 
   return (
     <div>

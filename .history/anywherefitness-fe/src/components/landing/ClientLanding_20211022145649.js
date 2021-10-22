@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import * as api from "../../api/api_calls";
 import * as con from "../../constant/constant";
+import ContextObject from "../../context/context";
 
 const ClientLanding = (props) => {
   const [allAvailableClasses, set_allAvailableClasses] = useState(null);

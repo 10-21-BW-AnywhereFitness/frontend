@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import * as con from "../../constant/constant";
 
 const Logout = (props) => {
+  
   const { setGlobalStateToDefault } = useContext(ContextObject);
   const history = useHistory();
 
