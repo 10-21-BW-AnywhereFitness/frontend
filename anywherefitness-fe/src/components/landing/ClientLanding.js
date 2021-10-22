@@ -77,7 +77,8 @@ const ClientLanding = (props) => {
     <div className="client-landing">
       {/** Navbar */}
       <h2>Welcome {username}!</h2>
-      <Link to="/search">Search classes</Link>
+      <Link to="/client/search">Search classes</Link>
+      <Link to="/client/reserved">Reserved classes</Link>
       <h2>Your Classes</h2>
       {/* <div className="client-classes">
         {reservedClasses.length === 0 ? (

@@ -8,7 +8,9 @@ import Instructor from "./components/pages/instructor";
 import Footer from "./components/Footer";
 import Login from "./components/pages/login";
 import Signup from "./components/pages/signup";
-import Search from "./components/pages/searchclass"
+import ClientSearch from "./components/pages/clientSearch"
+import InstructorSearch from "./components/pages/instructorSearch";
+import Reserved from './components/pages/reserved'
 
 function App() {
   return (
@@ -28,6 +30,18 @@ function App() {
           <Home />
         </Route>
 
+        <Route path="/client/search">
+          <ClientSearch />
+        </Route>
+
+        <Route path="/instructor/search">
+          <InstructorSearch />
+        </Route>
+
+        <Route path="/client/reserved">
+          <Reserved />
+        </Route>
+
         <Route path="/client">
           <Client />
         </Route>
@@ -44,9 +58,6 @@ function App() {
           <Signup />
         </Route>
 
-        <Route path="/search">
-          <Search />
-        </Route>
 
         <div className="footer-container">
           <Footer />
