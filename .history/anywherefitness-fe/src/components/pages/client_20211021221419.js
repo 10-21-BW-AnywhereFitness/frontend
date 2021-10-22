@@ -1,6 +1,6 @@
 import React from "react";
 import ClientLanding from "../landing/ClientLanding";
-import { getUserID } from "../../constant/constant";
+import {getUse} from "../../constant/constant"
 
 const fakeClient = {
   user_id: 2,
@@ -11,6 +11,7 @@ const fakeClient = {
 const Client = (props) => {
   return (
     <div>
+      <p>Welsome {}</p>
       <ClientLanding userInfo={fakeClient} />
     </div>
   );

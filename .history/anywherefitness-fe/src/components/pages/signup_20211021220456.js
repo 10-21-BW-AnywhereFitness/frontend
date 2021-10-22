@@ -1,10 +1,11 @@
 import React from "react";
-import CreateUserForm from "../../form/createUser";
+import sign
 
 const Signup = (props) => {
   return (
     <div>
-      <CreateUserForm />
+      
+      
     </div>
   );
 };

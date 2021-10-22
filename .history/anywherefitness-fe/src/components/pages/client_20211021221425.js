@@ -11,6 +11,7 @@ const fakeClient = {
 const Client = (props) => {
   return (
     <div>
+      <p>Welsome {getUserID()}</p>
       <ClientLanding userInfo={fakeClient} />
     </div>
   );

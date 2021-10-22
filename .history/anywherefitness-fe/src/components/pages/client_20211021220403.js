@@ -1,6 +1,5 @@
 import React from "react";
 import ClientLanding from "../landing/ClientLanding";
-import { getUserID } from "../../constant/constant";
 
 const fakeClient = {
   user_id: 2,
