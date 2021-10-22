@@ -59,19 +59,19 @@ function App() {
             <Home />
           </Route>
 
-          <Route exact path="/client/search">
+          <Route path="/client/search">
             <ClientSearch />
           </Route>
 
-          <Route exact path="/instructor/search">
+          <Route path="/instructor/search">
             <InstructorSearch />
           </Route>
 
-          <Route exact path="/client/reserved">
+          <Route path="/client/reserved">
             <Reserved />
           </Route>
 
-          <Route exact path="/client">
+          <Route path="/client">
             <Client />
           </Route>
 

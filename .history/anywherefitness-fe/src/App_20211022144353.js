@@ -30,9 +30,21 @@ function App() {
     set_GlobalState(initialState);
   };
 
-  const set_availableClasses = () => {};
+  const set_availableClasses = () => {
+    api
+      .client_get_all_available_classes()
+      .then((res) => {
+        console.log("client_get_all_available_classes res.data = ", res.data);
+        // set_GlobalState({ ...GlobalState, allAvailableClasses: [...res.data] });
+      })
+      .catch((error) => {
+        console.log("client_get_all_available_classes, error = ", error);
+      });
+  };
 
-  const set_clientReservedClasses = (array) => {};
+  const set_clientReservedClasses = (array) => {
+    set_GlobalState({ ...GlobalState, clientReservedClasses: array });
+  };
 
   return (
     <ContextObject.Provider
@@ -59,19 +71,19 @@ function App() {
             <Home />
           </Route>
 
-          <Route exact path="/client/search">
+          <Route path="/client/search">
             <ClientSearch />
           </Route>
 
-          <Route exact path="/instructor/search">
+          <Route path="/instructor/search">
             <InstructorSearch />
           </Route>
 
-          <Route exact path="/client/reserved">
+          <Route path="/client/reserved">
             <Reserved />
           </Route>
 
-          <Route exact path="/client">
+          <Route path="/client">
             <Client />
           </Route>
 

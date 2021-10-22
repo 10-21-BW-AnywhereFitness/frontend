@@ -6,7 +6,7 @@ import ContextObject from "../../context/context";
 const ClientLanding = (props) => {
   const { GlobalState } = useContext(ContextObject);
   const [allAvailableClasses, set_allAvailableClasses] = useState(null);
-  const [clientReservedClasses, set_clientReservedClasses] = useState(null);
+  const [clientReseredClasses, set_clientReservedClasses] = useState(null);
 
   useEffect(() => {
     api
@@ -32,26 +32,17 @@ const ClientLanding = (props) => {
   return (
     <div className="client-landing">
       <h2 className="text-center">{con.getWelcomeMessage()}</h2>
+      <h2>user_id = {con.getUserID()}!</h2>
+      <p>token = {con.getToken()}</p>
 
       <p>===============Available Classes=============</p>
-      {allAvailableClasses === null ? (
-        <p>Loading... available classes</p>
-      ) : (
-        <p>
-          There are {allAvailableClasses.length} classes available, please
-          search them in <b>"Search Class" link</b>.
-        </p>
-      )}
-
+      {allAvailableClasses === null ? <}
+      <p>
+        There are {allAvailableClasses.length} classes available, please search
+        them in <b>"Search Class" link</b>.
+      </p>
       <p>==============Reserved Classes===============</p>
-      {clientReservedClasses === null ? (
-        <p>Loading your reservation</p>
-      ) : (
-        <p>
-          You have reserved {clientReservedClasses.length} classes, please view
-          your reservation in <b>"Reserved"</b> tab.
-        </p>
-      )}
+      <p>You have reserved {clientReseredClasses.length} classes.</p>
     </div>
   );
 };

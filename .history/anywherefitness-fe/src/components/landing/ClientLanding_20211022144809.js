@@ -32,6 +32,8 @@ const ClientLanding = (props) => {
   return (
     <div className="client-landing">
       <h2 className="text-center">{con.getWelcomeMessage()}</h2>
+      <h2>user_id = {con.getUserID()}!</h2>
+      <p>token = {con.getToken()}</p>
 
       <p>===============Available Classes=============</p>
       {allAvailableClasses === null ? (
@@ -44,14 +46,8 @@ const ClientLanding = (props) => {
       )}
 
       <p>==============Reserved Classes===============</p>
-      {clientReservedClasses === null ? (
-        <p>Loading your reservation</p>
-      ) : (
-        <p>
-          You have reserved {clientReservedClasses.length} classes, please view
-          your reservation in <b>"Reserved"</b> tab.
-        </p>
-      )}
+      {clientReservedClasses === null ? }
+      <p>You have reserved {clientReservedClasses.length} classes.</p>
     </div>
   );
 };

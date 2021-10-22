@@ -71,7 +71,7 @@ function App() {
             <Reserved />
           </Route>
 
-          <Route exact path="/client">
+          <Route path="/client">
             <Client />
           </Route>
 

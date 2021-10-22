@@ -67,11 +67,11 @@ function App() {
             <InstructorSearch />
           </Route>
 
-          <Route exact path="/client/reserved">
+          <Route path="/client/reserved">
             <Reserved />
           </Route>
 
-          <Route exact path="/client">
+          <Route path="/client">
             <Client />
           </Route>
 

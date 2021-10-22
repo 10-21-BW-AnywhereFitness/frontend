@@ -32,6 +32,8 @@ const ClientLanding = (props) => {
   return (
     <div className="client-landing">
       <h2 className="text-center">{con.getWelcomeMessage()}</h2>
+      <h2>user_id = {con.getUserID()}!</h2>
+      <p>token = {con.getToken()}</p>
 
       <p>===============Available Classes=============</p>
       {allAvailableClasses === null ? (

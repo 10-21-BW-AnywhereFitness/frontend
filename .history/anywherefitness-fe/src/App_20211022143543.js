@@ -30,9 +30,13 @@ function App() {
     set_GlobalState(initialState);
   };
 
-  const set_availableClasses = () => {};
+  const set_availableClasses = (array) => {
+    set_GlobalState({ ...GlobalState, allAvailableClasses: array });
+  };
 
-  const set_clientReservedClasses = (array) => {};
+  const set_clientReservedClasses = (array) => {
+    set_GlobalState({ ...GlobalState, clientReservedClasses: array });
+  };
 
   return (
     <ContextObject.Provider
@@ -59,19 +63,19 @@ function App() {
             <Home />
           </Route>
 
-          <Route exact path="/client/search">
+          <Route path="/client/search">
             <ClientSearch />
           </Route>
 
-          <Route exact path="/instructor/search">
+          <Route path="/instructor/search">
             <InstructorSearch />
           </Route>
 
-          <Route exact path="/client/reserved">
+          <Route path="/client/reserved">
             <Reserved />
           </Route>
 
-          <Route exact path="/client">
+          <Route path="/client">
             <Client />
           </Route>
 
