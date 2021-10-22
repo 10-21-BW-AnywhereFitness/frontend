@@ -76,9 +76,9 @@ const ClientLanding = (props) => {
   return (
     <div className="client-landing">
       {/** Navbar */}
-      <Card>
+      
         <h2 className="text-center">Welcome {username}!</h2>
-        <Button onClick={searchOnClick} className='btn btn-dark btn-md'>Search Classes</Button>
+        <Button onClick={searchOnClick} color='secondary' size='sm'>Search Classes</Button>
         <h2 className="text-center">Your Classes</h2>
         {/* <div className="client-classes">
           {reservedClasses.length === 0 ? (
@@ -100,7 +100,6 @@ const ClientLanding = (props) => {
         {reservedClasses.map((each) => {
           return <p>{JSON.stringify(each)}</p>;
         })}
-      </Card>
       
     </div>
   );
