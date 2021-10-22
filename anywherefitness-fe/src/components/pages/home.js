@@ -1,6 +1,5 @@
 import React from "react"
-import Workout from '../workout1.jpg'
-import { Image } from 'reactstrap';
+
 
 const Home = (props) =>{
     return (
