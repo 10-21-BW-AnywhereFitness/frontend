@@ -15,7 +15,7 @@ const Home = (props) =>{
                         </p>
                     </div>
                     <div className='workout'>
-                        <img src={workout1} alt='workout' />
+                        <img src={workout1} alt='workout'/>
                     </div>
                 </div>
         </div>
