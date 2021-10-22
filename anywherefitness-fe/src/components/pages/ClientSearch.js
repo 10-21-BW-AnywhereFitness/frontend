@@ -28,8 +28,8 @@ const SearchClass = (props) => {
     .catch((error) => {
       console.log("client_get_all_available_classes, error = ", error);
     });
-  return (
-<div className='main-cont'>
+    return (
+    <div className='main-cont'>
             <div className='input-cont'>
                 <div>
                     <input className='search' type='text' placeholder='Search Classes...' onChange={e => {setSearchTerm(e.target.value)}}/>

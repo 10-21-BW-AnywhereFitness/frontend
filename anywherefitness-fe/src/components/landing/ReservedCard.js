@@ -2,7 +2,7 @@ import React from "react";
 import './ClassCard.css'
 import * as api from "../../api/api_calls";
 
-function ClassCard({info}){
+function ReservedCard({info}){
     if (!info){
         return <h3>Fetching your class details</h3>
     }
@@ -36,4 +36,4 @@ function ClassCard({info}){
     )
 }
 
-export default ClassCard;
+export default ReservedCard;

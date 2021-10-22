@@ -1,6 +1,6 @@
 import React from "react";
 import './ClassCard.css'
-import {Link} from 'react-router-dom'
+import * as api from "../../api/api_calls";
 
 function ClassCard({info}){
     if (!info){
@@ -15,6 +15,7 @@ function ClassCard({info}){
             .catch((error) => {
             console.log("client_make_a_reservation_by_id, error = ", error);
         });
+    }
     return(
         <div className='class-cont'>
             <div className='title'>
