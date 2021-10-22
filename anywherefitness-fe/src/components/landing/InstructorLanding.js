@@ -7,7 +7,7 @@ import {
   PATH_INSTRUCTOR_DELETE_CLASS_BY_ID,
 } from "./contants";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import ClassDetails from "./ClassDetails";
 import Popup from "./Popup";
 import ClassForm from "./ClassForm";
@@ -199,7 +199,7 @@ const InstructorLanding = (props) => {
   return (
     <div className="instructor-landing">
       <h2>Welcome {username}!</h2>
-      <button onClick={searchOnClick}>Search classes</button>
+      <Link to="/search">Search classes</Link>
       <button onClick={createOnClick}>Create a class</button>
       <Popup trigger={openPopup} open={setOpenPopup}>
         <h3>{editMode ? "Edit Class" : "Create A Class"}</h3>

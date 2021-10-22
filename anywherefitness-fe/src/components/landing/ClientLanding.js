@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import ClassDetails from "./ClassDetails";
 import * as api from "../../api/api_calls";
@@ -67,16 +68,16 @@ const ClientLanding = (props) => {
       });
   }, []);
 
-  const searchOnClick = () => {
-    //Go to Search Page
-    console.log("clicked search");
-  };
+  // const searchOnClick = () => {
+  //   //Go to Search Page
+  //   console.log("clicked search");
+  // };
 
   return (
     <div className="client-landing">
       {/** Navbar */}
       <h2>Welcome {username}!</h2>
-      <button onClick={searchOnClick}>Search classes</button>
+      <Link to="/search">Search classes</Link>
       <h2>Your Classes</h2>
       {/* <div className="client-classes">
         {reservedClasses.length === 0 ? (
