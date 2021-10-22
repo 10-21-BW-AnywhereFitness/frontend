@@ -4,7 +4,8 @@ import * as api from "../../api/api_calls";
 import styled from "styled-components";
 import * as con from "../../constant/constant";
 import SearchClass from "../pages/ClientSearch";
-import Reserved from "../pages/Reserved";
+import Reservedfrom "../pages/Reserved"
+
 
 const DIV_LINK = styled.div`
   background-color: black;
@@ -43,10 +44,10 @@ const ClientLanding = (props) => {
       <h2>user_id = {con.getUserID()}!</h2>
       <p>token = {con.getToken()}</p>
       <DIV_LINK>
-        <Link to="/client/search">Search A Class</Link>
+        <Link to="/client/search">Search classes</Link>
       </DIV_LINK>
       <DIV_LINK>
-        <Link to="/client/reserved">Reserved Classes</Link>
+        <Link to="/client/reserved">Reserved classes</Link>
       </DIV_LINK>
       <p>===============Available Classes=============</p>
       {availableClasses.map((each) => {

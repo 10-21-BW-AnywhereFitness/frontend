@@ -43,10 +43,14 @@ const ClientLanding = (props) => {
       <h2>user_id = {con.getUserID()}!</h2>
       <p>token = {con.getToken()}</p>
       <DIV_LINK>
-        <Link to="/client/search">Search A Class</Link>
+        <Link to="/client/search">
+          Search Class
+        </Link>
       </DIV_LINK>
       <DIV_LINK>
-        <Link to="/client/reserved">Reserved Classes</Link>
+        <Link to="/client/reserved">
+          <Reserved />
+        </Link>
       </DIV_LINK>
       <p>===============Available Classes=============</p>
       {availableClasses.map((each) => {

@@ -15,9 +15,9 @@ export default function NavBar() {
         Instructor
       </Link>
       <Link to="/login" style={{ textDecoration: "none" }}>
-        {con.getToken !== "" ? "Log In" : "Log Out"}
+        {con.getToken === "" ? "Logon" : "Logit"}
       </Link>
-      {con.getToken !== "" ? (
+      {con.getToken === "" ? (
         <Link to="/signup" style={{ textDecoration: "none" }}>
           Signup
         </Link>

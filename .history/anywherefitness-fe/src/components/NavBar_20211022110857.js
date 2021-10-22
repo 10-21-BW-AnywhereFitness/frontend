@@ -15,13 +15,14 @@ export default function NavBar() {
         Instructor
       </Link>
       <Link to="/login" style={{ textDecoration: "none" }}>
-        {con.getToken !== "" ? "Log In" : "Log Out"}
+        {con.getToken === "" ? "Login" : "Logout"}
       </Link>
-      {con.getToken !== "" ? (
-        <Link to="/signup" style={{ textDecoration: "none" }}>
-          Signup
-        </Link>
-      ) : null}
-    </div>
+      {
+        con.getToken === "" ? <Link to="/signup" style={{ textDecoration: "none" }}>
+        Signup
+      </Link>
+    </div> : null
+      }
+      
   );
 }
