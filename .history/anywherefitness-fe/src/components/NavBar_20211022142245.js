@@ -26,7 +26,7 @@ export default function NavBar() {
         </Link>
       ) : null}
 
-      {GlobalState.role_id === 2 ? (
+      {GlobalState.token !== "" && GlobalState.role_id === 2 ? (
         <Link to="/client/reserved" style={{ textDecoration: "none" }}>
           Reserved
         </Link>

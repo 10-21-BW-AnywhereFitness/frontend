@@ -44,7 +44,6 @@ function App() {
         set_GlobalState,
         setGlobalStateToDefault,
         set_availableClasses,
-        set_clientReservedClasses,
       }}
     >
       <div className="App">

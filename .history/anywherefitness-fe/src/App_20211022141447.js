@@ -33,10 +33,6 @@ function App() {
     set_GlobalState({ ...GlobalState, allAvailableClasses: array });
   };
 
-  const set_clientReservedClasses = (array) => {
-    set_GlobalState({ ...GlobalState, clientReservedClasses: array });
-  };
-
   return (
     <ContextObject.Provider
       value={{
@@ -44,7 +40,6 @@ function App() {
         set_GlobalState,
         setGlobalStateToDefault,
         set_availableClasses,
-        set_clientReservedClasses,
       }}
     >
       <div className="App">

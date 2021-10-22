@@ -8,24 +8,25 @@ const ClientLanding = (props) => {
     useContext(ContextObject);
 
   useEffect(() => {
-    // api
-    //   .client_get_all_available_classes()
-    //   .then((res) => {
-    //     console.log("client_get_all_available_classes res.data = ", res.data);
-    //     set_availableClasses(res.data);
-    //   })
-    //   .catch((error) => {
-    //     console.log("client_get_all_available_classes, error = ", error);
-    //   });
-    // api
-    //   .client_get_all_reserved_classes()
-    //   .then((res) => {
-    //     console.log("client_get_all_reserved_classes, res.data = ", res.data);
-    //     set_clientReservedClasses(res.data);
-    //   })
-    //   .catch((error) => {
-    //     console.log(("client_get_all_reserved_classes, error = ", error));
-    //   });
+    api
+      .client_get_all_available_classes()
+      .then((res) => {
+        console.log("client_get_all_available_classes res.data = ", res.data);
+        set_availableClasses(res.data);
+      })
+      .catch((error) => {
+        console.log("client_get_all_available_classes, error = ", error);
+      });
+
+    api
+      .client_get_all_reserved_classes()
+      .then((res) => {
+        console.log("client_get_all_reserved_classes, res.data = ", res.data);
+        set_clientReservedClasses(res.data);
+      })
+      .catch((error) => {
+        console.log(("client_get_all_reserved_classes, error = ", error));
+      });
   }, []);
 
   return (

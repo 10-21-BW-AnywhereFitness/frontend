@@ -29,23 +29,13 @@ function App() {
     set_GlobalState(initialState);
   };
 
-  const set_availableClasses = (array) => {
-    set_GlobalState({ ...GlobalState, allAvailableClasses: array });
-  };
-
-  const set_clientReservedClasses = (array) => {
-    set_GlobalState({ ...GlobalState, clientReservedClasses: array });
-  };
+  const set_availableClasses =() =>{
+    set_GlobalState({...GlobalState, })
+  }
 
   return (
     <ContextObject.Provider
-      value={{
-        GlobalState,
-        set_GlobalState,
-        setGlobalStateToDefault,
-        set_availableClasses,
-        set_clientReservedClasses,
-      }}
+      value={{ GlobalState, set_GlobalState, setGlobalStateToDefault }}
     >
       <div className="App">
         <header className="header">

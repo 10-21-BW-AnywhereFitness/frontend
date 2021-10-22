@@ -20,13 +20,13 @@ export default function NavBar() {
         history.push("/")
       )}
 
-      {GlobalState.role_id === 2 ? (
+      {GlobalState.token !== "" && GlobalState.role_id === 2 ? (
         <Link to="/client/search" style={{ textDecoration: "none" }}>
           Search Class
         </Link>
       ) : null}
 
-      {GlobalState.role_id === 2 ? (
+      {GlobalState.token !== "" && GlobalState.role_id === 2 ? (
         <Link to="/client/reserved" style={{ textDecoration: "none" }}>
           Reserved
         </Link>
