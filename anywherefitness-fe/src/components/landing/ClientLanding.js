@@ -49,14 +49,14 @@ const ClientLanding = (props) => {
         
         <div className='classes-container'>
           <div className='available-classes'>
-          <p>===============Available Classes=============</p>
+          <h2>Available Classes</h2>
             {availableClasses.map((each) => {
               return <p>{JSON.stringify(each)}</p>;
             })}
           </div>
 
           <div className='reserved-classes'>
-            <p>==============Reserved Classes===============</p>
+            <h2>Reserved Classes</h2>
               {reservedClasses.map((each) => {
                 return <p>{JSON.stringify(each)}</p>;
               })}

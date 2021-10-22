@@ -79,8 +79,9 @@ export default function LoginForm(props) {
             onChange={cb_onChange}
           />
         </label>
-        <button>Submit</button>
-      </Form>
+        
+        <button className='login-button'>Submit</button>
+        </Form>
       <p>welcome message = {con.getWelcomeMessage}</p>
       <p>token = {con.getToken}</p>
       <p>user_id={con.getUserID}</p>
