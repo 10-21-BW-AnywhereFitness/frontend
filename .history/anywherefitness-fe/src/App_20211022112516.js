@@ -11,6 +11,7 @@ import Signup from "./components/pages/signup";
 import ClientSearch from "./components/pages/ClientSearch";
 import InstructorSearch from "./components/pages/instructorSearch";
 import Reserved from "./components/pages/Reserved";
+<NavBar />
 
 function App() {
   return (
@@ -21,7 +22,6 @@ function App() {
             <h1>Anywhere Fitness</h1>
           </Link>
         </div>
-        <NavBar />
       </header>
 
       <div className="main-content">

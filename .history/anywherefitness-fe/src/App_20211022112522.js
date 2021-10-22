@@ -11,6 +11,7 @@ import Signup from "./components/pages/signup";
 import ClientSearch from "./components/pages/ClientSearch";
 import InstructorSearch from "./components/pages/instructorSearch";
 import Reserved from "./components/pages/Reserved";
+<NavBar />;
 
 function App() {
   return (

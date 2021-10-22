@@ -8,9 +8,9 @@ import Instructor from "./components/pages/instructor";
 import Footer from "./components/Footer";
 import Login from "./components/pages/login";
 import Signup from "./components/pages/signup";
-import ClientSearch from "./components/pages/ClientSearch";
+import ClientSearch from "./components/pages/ClientSearch"
 import InstructorSearch from "./components/pages/instructorSearch";
-import Reserved from "./components/pages/Reserved";
+import Reserved from './components/pages/Reserved'
 
 function App() {
   return (
@@ -56,6 +56,7 @@ function App() {
         <Route path="/signup">
           <Signup />
         </Route>
+
 
         <div className="footer-container">
           <Footer />

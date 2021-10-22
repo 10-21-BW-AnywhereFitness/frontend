@@ -21,7 +21,6 @@ function App() {
             <h1>Anywhere Fitness</h1>
           </Link>
         </div>
-        <NavBar />
       </header>
 
       <div className="main-content">
