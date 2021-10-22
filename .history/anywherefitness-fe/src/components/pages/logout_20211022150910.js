@@ -7,6 +7,10 @@ const Logout = (props) => {
   const { setGlobalStateToDefault } = useContext(ContextObject);
   const history = useHistory();
 
+  // useEffect(() => {
+
+  // }, []);
+
   con.setRole("");
   con.setToken("");
   con.setUserID("");

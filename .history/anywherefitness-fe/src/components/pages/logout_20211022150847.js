@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import ContextObject from "../../context/context";
 import { useHistory } from "react-router-dom";
 import * as con from "../../constant/constant";
@@ -6,6 +6,10 @@ import * as con from "../../constant/constant";
 const Logout = (props) => {
   const { setGlobalStateToDefault } = useContext(ContextObject);
   const history = useHistory();
+
+  // useEffect(() => {
+
+  // }, []);
 
   con.setRole("");
   con.setToken("");
