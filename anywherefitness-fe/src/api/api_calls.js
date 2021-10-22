@@ -31,7 +31,15 @@ export const API_Call_logoutService = () => {
 
 //==================================================================
 export const client_make_a_reservation_by_id = (id) => {
-  return axiosWithAuth().post(con.PATH_CLIENT_MAKE_A_CLASS_RESERVATION + id);
+  console.log(
+    "PATH_CLIENT_MAKE_A_CLASS_RESERVATION + id =",
+    con.PATH_CLIENT_MAKE_A_CLASS_RESERVATION + id
+  );
+  console.log("getToken = ", con.getToken());
+  return axiosWithAuth().post(
+    con.PATH_CLIENT_MAKE_A_CLASS_RESERVATION + id,
+    {}
+  );
 };
 
 export const instructor_add_one_class = (object) => {
@@ -49,6 +57,10 @@ export const instructor_get_class_by_id = (id) => {
 
 //=================================================================
 export const client_get_all_available_classes = () => {
+  console.log(
+    "PATH_CLIENT_GALL_ALL_AVAILABLE_CLASSES = ",
+    con.PATH_CLIENT_GALL_ALL_AVAILABLE_CLASSES
+  );
   return axiosWithAuth().get(con.PATH_CLIENT_GALL_ALL_AVAILABLE_CLASSES);
 };
 
@@ -57,6 +69,10 @@ export const client_get_one_reserved_class_by_id = (id) => {
 };
 
 export const client_get_all_reserved_classes = () => {
+  console.log(
+    "PATH_CLIENT_GET_ALL_RESERVED_CLASSES = ",
+    con.PATH_CLIENT_GET_ALL_RESERVED_CLASSES
+  );
   return axiosWithAuth().get(con.PATH_CLIENT_GET_ALL_RESERVED_CLASSES);
 };
 
@@ -78,25 +94,4 @@ export const client_delete_reservation_by_id = (id) => {
 
 export const instructor_delete_class_by_id = (id) => {
   return axiosWithAuth().delete(con.PATH_INSTRUCTOR_DELETE_CLASS_BY_ID + id);
-};
-
-export const API_Get_Classes_From_masonj = () => {
-  return axios
-    .post(con.API_URL_BASE + con.PATH_LOGIN, {
-      username: "masonj",
-      password: "masonj",
-    })
-    .then((res) => {
-      return axios
-        .create({
-          baseURL: con.API_URL_BASE,
-          headers: {
-            authorization: res.data.token,
-          },
-        })
-        .get(`/api/instructor/${res.data.user_id}/classes`);
-    })
-    .catch((error) => {
-      console.log("fail to get data from masonj");
-    });
 };

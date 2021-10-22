@@ -1,14 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { API_Call_loginService } from "../api/api_calls";
-import {
-  setToken,
-  setUserID,
-  setWelcomeMessage,
-  setRole,
-} from "../constant/constant";
+import * as con from "../constant/constant";
 import { useHistory } from "react-router-dom";
-
 
 const Container = styled.div`
   border: solid 1px black;
@@ -33,10 +27,10 @@ export default function LoginForm(props) {
     API_Call_loginService(state)
       .then((res) => {
         console.log("API_Call_loginService, res.data = ", res.data);
-        setToken(res.data.token);
-        setRole(res.data.role_id);
-        setUserID(res.data.user_id);
-        setWelcomeMessage(res.data.message);
+        con.setToken(res.data.token);
+        con.setRole(res.data.role_id);
+        con.setUserID(res.data.user_id);
+        con.setWelcomeMessage(res.data.message);
         if (res.data.role_id === 1) {
           history.push("/instructor");
         } else {
@@ -51,6 +45,13 @@ export default function LoginForm(props) {
   const cb_onChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.value });
   };
+
+  useEffect(() => {
+    con.setRole("");
+    con.setToken("");
+    con.setUserID("");
+    con.setWelcomeMessage("");
+  }, []);
 
   return (
     <Container>
@@ -80,6 +81,10 @@ export default function LoginForm(props) {
         </label>
         <button>Submit</button>
       </Form>
+      <p>welcome message = {con.getWelcomeMessage}</p>
+      <p>token = {con.getToken}</p>
+      <p>user_id={con.getUserID}</p>
+      <p>user_role={con.getRole}</p>
     </Container>
   );
 }
