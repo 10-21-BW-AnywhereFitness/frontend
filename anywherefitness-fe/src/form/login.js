@@ -82,10 +82,10 @@ export default function LoginForm(props) {
         
         <button className='login-button'>Submit</button>
         </Form>
-      <p>welcome message = {con.getWelcomeMessage}</p>
+      {/* <p>welcome message = {con.getWelcomeMessage}</p>
       <p>token = {con.getToken}</p>
       <p>user_id={con.getUserID}</p>
-      <p>user_role={con.getRole}</p>
+      <p>user_role={con.getRole}</p> */}
     </Container>
   );
 }
