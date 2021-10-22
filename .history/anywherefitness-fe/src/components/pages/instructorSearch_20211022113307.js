@@ -88,6 +88,8 @@ const SearchClass = (props) => {
               val.class_name.toLowerCase().includes(searchTerm.toLowerCase())
             ) {
               return val;
+            }else{
+                return 
             }
           })
           .map((val, key) => {

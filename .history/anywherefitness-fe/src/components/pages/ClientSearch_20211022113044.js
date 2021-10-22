@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as api from "../../api/api_calls";
-import InstructorCard from "../landing/InstructorCard";
+import ClassCard from "../landing/ClassCard";
 import "../landing/Search.css";
 
 const initialDifficulty = [];
@@ -20,15 +20,19 @@ const SearchClass = (props) => {
       );
     }
   };
-  api
-    .instructor_get_all_classes()
-    .then((res) => {
-      console.log("instructor_get_all_classes res.data = ", res.data);
-      set_availableClasses(res.data);
-    })
-    .catch((error) => {
-      console.log("instructor_get_all_classes, error = ", error);
-    });
+
+  useEffect(() => {
+    api
+      .client_get_all_available_classes()
+      .then((res) => {
+        console.log("client_get_all_available_classes res.data = ", res.data);
+        set_availableClasses(res.data);
+      })
+      .catch((error) => {
+        console.log("client_get_all_available_classes, error = ", error);
+      });
+  }, []);
+
   return (
     <div className="main-cont">
       <div className="input-cont">
@@ -88,12 +92,14 @@ const SearchClass = (props) => {
               val.class_name.toLowerCase().includes(searchTerm.toLowerCase())
             ) {
               return val;
+            }else{
+              return
             }
           })
           .map((val, key) => {
             return (
               <div className="classes-cont" key={key}>
-                <InstructorCard info={val} key={key} />
+                <ClassCard info={val} key={key} />
               </div>
             );
           })}
