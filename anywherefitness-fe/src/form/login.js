@@ -80,7 +80,7 @@ export default function LoginForm(props) {
           />
         </label>
         
-        <button className='login-button'>Submit</button>
+        <button className='button'>Submit</button>
         </Form>
       {/* <p>welcome message = {con.getWelcomeMessage}</p>
       <p>token = {con.getToken}</p>

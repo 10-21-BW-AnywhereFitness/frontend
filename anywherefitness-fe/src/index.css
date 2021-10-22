@@ -104,9 +104,12 @@ h1{
 }
 
 /* login landing page */
-.login-button{
-  width: 100px;
+.button{
+  width: 150px;
   height: 50px;
+  align-self: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 .login-container{
