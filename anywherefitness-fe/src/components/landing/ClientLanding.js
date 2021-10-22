@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import * as api from "../../api/api_calls";
-import styled from "styled-components";
 import * as con from "../../constant/constant";
 import SearchClass from "../pages/ClientSearch";
 import Reserved from "../pages/Reserved";
 
-const DIV_LINK = styled.div`
-  background-color: black;
-  color: blue;
-`;
 
 const ClientLanding = (props) => {
   const [reservedClasses, setReservedClasses] = useState([]);
@@ -39,15 +34,16 @@ const ClientLanding = (props) => {
 
   return (
     <div className="client-landing">
-      <h2 className="text-center">{con.getWelcomeMessage()}</h2>
+      <h2>{con.getWelcomeMessage()}</h2>
       <h2>user_id = {con.getUserID()}!</h2>
       <p>token = {con.getToken()}</p>
-      <DIV_LINK>
+      <button>
         <Link to="/client/search">Search A Class</Link>
-      </DIV_LINK>
-      <DIV_LINK>
+      </button>
+      
+      <button>
         <Link to="/client/reserved">Reserved Classes</Link>
-      </DIV_LINK>
+      </button>
       <p>===============Available Classes=============</p>
       {availableClasses.map((each) => {
         return <p>{JSON.stringify(each)}</p>;
