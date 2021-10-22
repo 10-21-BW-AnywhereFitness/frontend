@@ -5,6 +5,7 @@ import ClassDetails from "./ClassDetails";
 import Popup from "./Popup";
 import ClassForm from "./ClassForm";
 import * as api from "../../api/api_calls";
+import { Button, Card } from 'reactstrap';
 
 // import SearchPage
 
@@ -147,35 +148,36 @@ const InstructorLanding = (props) => {
 
   return (
     <div className="instructor-landing">
-      <h2>Welcome {username}!</h2>
-      <button onClick={searchOnClick}>Search classes</button>
-      <button onClick={createOnClick}>Create a class</button>
-      <Popup trigger={openPopup} open={setOpenPopup}>
-        <h3>{editMode ? "Edit Class" : "Create A Class"}</h3>
-        <ClassForm
-          newClass={newClass}
-          change={onChange}
-          submit={onSubmit}
-          open={setOpenPopup}
-        />
-      </Popup>
-      <h2>Your Classes</h2>
-      <div className="instructor-classes">
-        {teachingClasses.length === 0 ? (
-          <h2>You don't have any classes scheduled.</h2>
-        ) : (
-          teachingClasses.map((_class) => (
-            <ClassDetails
-              key={_class.class_id}
-              _class={_class}
-              instructor={true}
-              edit={editOnClick}
-              remove={removeClass}
-              popupOpen={openPopup}
-            />
-          ))
-        )}
-      </div>
+          <h2 className="text-center">Welcome {username}!</h2>
+          
+          <Button onClick={searchOnClick} className='btn btn-sm'>Search classes</Button>
+          <Button onClick={createOnClick} className='btn btn-sm'>Create a class</Button>
+          <Popup trigger={openPopup} open={setOpenPopup}>
+          <h3>{editMode ? "Edit Class" : "Create A Class"}</h3>
+          <ClassForm
+            newClass={newClass}
+            change={onChange}
+            submit={onSubmit}
+            open={setOpenPopup}
+          />
+          </Popup>
+          <h2>Your Classes</h2>
+          <div className="instructor-classes">
+            {teachingClasses.length === 0 ? (
+              <h2>Getting your classes...</h2>
+            ) : (
+              teachingClasses.map((_class) => (
+                <ClassDetails
+                  key={_class.class_id}
+                  _class={_class}
+                  instructor={true}
+                  edit={editOnClick}
+                  remove={removeClass}
+                  popupOpen={openPopup}
+                />
+              ))
+            )}
+          </div>
     </div>
   );
 };

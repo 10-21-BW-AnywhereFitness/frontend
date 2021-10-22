@@ -8,15 +8,16 @@ import Instructor from "./components/pages/instructor";
 import Footer from "./components/Footer";
 import Login from "./components/pages/login";
 import Signup from "./components/pages/signup";
+import { Button } from 'reactstrap';
 
 function App() {
   return (
     <div className="App">
       <header className="header">
         <div className="logo-bar">
-          <Link to="/home">
+          <Link to="/" style={{ textDecoration: 'none' }}>
             <h1>Anywhere Fitness</h1>
-            <p>App.js</p>
+            
           </Link>
         </div>
         <NavBar />
@@ -43,6 +44,9 @@ function App() {
           <Signup />
         </Route>
 
+
+
+        
         <div className="footer-container">
           <Footer />
         </div>

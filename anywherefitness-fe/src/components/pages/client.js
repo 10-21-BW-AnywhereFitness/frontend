@@ -10,7 +10,7 @@ const fakeClient = {
 const Client = (props) => {
   return (
     <div>
-      <ClientLanding userInfo={fakeClient} />
+      {/* <ClientLanding userInfo={fakeClient} /> */}
     </div>
   );
 };
