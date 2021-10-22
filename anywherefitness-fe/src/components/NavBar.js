@@ -5,20 +5,20 @@ import * as con from "../constant/constant";
 export default function NavBar() {
   return (
     <div className="nav-bar">
-      <Link to="/" style={{ textDecoration: "none" }}>
+      <Link to="/">
         Home
       </Link>
-      <Link to="/client" style={{ textDecoration: "none" }}>
+      <Link to="/client">
         Client
       </Link>
-      <Link to="/instructor" style={{ textDecoration: "none" }}>
+      <Link to="/instructor">
         Instructor
       </Link>
-      <Link to="/login" style={{ textDecoration: "none" }}>
+      <Link to="/login">
         {con.getToken !== "" ? "Log In" : "Log Out"}
       </Link>
       {con.getToken !== "" ? (
-        <Link to="/signup" style={{ textDecoration: "none" }}>
+        <Link to="/signup">
           Signup
         </Link>
       ) : null}
