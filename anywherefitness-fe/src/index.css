@@ -109,6 +109,10 @@ h1{
   height: 50px;
 }
 
+.login-container{
+  text-align: center;
+}
+
 /* footer */
 .footer{
   text-align: center;
