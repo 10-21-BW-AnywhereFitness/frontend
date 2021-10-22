@@ -22,7 +22,7 @@ h1{
   margin: 0;
   padding:0;
 }
-
+/* nav bar */
 .nav-bar{
   display: flex;
   justify-content: space-evenly;
@@ -38,6 +38,7 @@ h1{
   text-decoration: none;
 }
 
+/* home landing page */
 .content-container{
   display: flex;
   flex-direction: row;
@@ -67,24 +68,42 @@ h1{
   width: 90vh;
   height: 60vh;
 }
-
+/* client landing page */
 .client-landing{
   text-align: center;
 }
 
 .client-landing a{
   text-decoration: none;
+  color: black;
 }
 
-.client-landing a:visited{
-  color:blue;
+.client-button-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
-.client-landing button{
-  background-color: black;
-  color: blue;
+.classes-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border: 1px solid black;
+  margin: 25px;
+  padding: 15px;
 }
 
+/* instructor landing page */
+.instructor-landing{
+  text-align: center;
+}
+
+.instructor-landing a{
+  text-decoration: none;
+  color: black;
+}
+
+/* footer */
 .footer{
   text-align: center;
 }
