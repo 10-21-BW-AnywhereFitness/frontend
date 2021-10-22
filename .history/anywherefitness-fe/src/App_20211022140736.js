@@ -21,9 +21,9 @@ function App() {
     user_id: "",
     role_id: "",
     welcomeMessage: "",
-    allClasses: [],
-    clientReservedClasses: [],
-    instructorClasses: [],
+    allClasses:[],
+    clientReservedClasses:[],
+    instructorClasses:[]
   };
   const [GlobalState, set_GlobalState] = useState(initialState);
   const setGlobalStateToDefault = () => {
