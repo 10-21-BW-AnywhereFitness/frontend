@@ -37,7 +37,7 @@ const ClientLanding = (props) => {
       <h2>{con.getWelcomeMessage()}</h2>
       <h2>user_id = {con.getUserID()}!</h2>
       <p>token = {con.getToken()}</p>
-        <div className='client-button-container'>
+        <div className='button-container'>
           <button>
             <Link to="/client/search">Search A Class</Link>
           </button>

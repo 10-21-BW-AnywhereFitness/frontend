@@ -78,7 +78,7 @@ h1{
   color: black;
 }
 
-.client-button-container{
+.button-container{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
