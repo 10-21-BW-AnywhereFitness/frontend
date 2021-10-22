@@ -62,7 +62,7 @@ const InstructorLanding = (props) => {
   };
 
   const searchOnClick = () => {
-    // history.push(search page link);
+    // history.push(search page);
   };
 
   const createOnClick = () => {
