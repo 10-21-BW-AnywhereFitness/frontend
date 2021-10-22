@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { useHistory, Link } from "react-router-dom";
 import ClassDetails from "./ClassDetails";
 import Popup from "./Popup";
 import ClassForm from "./ClassForm";

@@ -12,8 +12,17 @@ export const PATH_INSTRUCTOR_GET_CLASS_BY_ID = `/api/instructor/${getUserID()}/c
 export const PATH_CLIENT_GET_CLASS_BY_ID = `/api/client/classes/`;
 export const PATH_CLIENT_MAKE_A_CLASS_RESERVATION = `/api/client/classes/`;
 export const PATH_CLIENT_DELETE_A_CLASS_RESERVATION = `/api/client/${getUserID()}/classes/`;
+//[GET] /api/client/:user_id/classes -- gets all the classes that the user has a reservation for
 export const PATH_CLIENT_GET_ALL_RESERVED_CLASSES = `/api/client/${getUserID()}/classes/`;
 export const PATH_CLIENT_GALL_ALL_AVAILABLE_CLASSES = `/api/client/classes`;
+
+export function getToken() {
+  if (localStorage.getItem("token")) {
+    return localStorage.getItem("token");
+  } else {
+    return "";
+  }
+}
 
 export function setWelcomeMessage(welcomeMessage) {
   localStorage.setItem("welcomeMessage", welcomeMessage);
@@ -25,13 +34,6 @@ export function getWelcomeMessage() {
 
 export function setToken(tokenValue) {
   localStorage.setItem("token", tokenValue);
-}
-export function getToken() {
-  if (localStorage.getItem("token")) {
-    return localStorage.getItem("token");
-  } else {
-    return "";
-  }
 }
 
 export function setRole(role_id) {

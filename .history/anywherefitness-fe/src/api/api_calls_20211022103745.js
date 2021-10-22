@@ -77,10 +77,6 @@ export const client_get_all_reserved_classes = () => {
 };
 
 export const instructor_get_all_classes = () => {
-  console.log(
-    "con.PATH_INSTRUCTOR_GET_CLASSES = ",
-    con.PATH_INSTRUCTOR_GET_CLASSES
-  );
   return axiosWithAuth().get(con.PATH_INSTRUCTOR_GET_CLASSES);
 };
 

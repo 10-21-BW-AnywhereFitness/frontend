@@ -17,7 +17,7 @@ export const PATH_CLIENT_GALL_ALL_AVAILABLE_CLASSES = `/api/client/classes`;
 
 export function setWelcomeMessage(welcomeMessage) {
   localStorage.setItem("welcomeMessage", welcomeMessage);
-}
+}q
 
 export function getWelcomeMessage() {
   return localStorage.getItem("welcomeMessage");

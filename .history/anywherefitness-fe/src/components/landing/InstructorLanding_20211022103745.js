@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { useHistory, Link } from "react-router-dom";
 import ClassDetails from "./ClassDetails";
 import Popup from "./Popup";
 import ClassForm from "./ClassForm";
 import * as api from "../../api/api_calls";
-import * as con from "../../constant/constant";
+import { Button, Card } from "reactstrap";
 
 const initialClass = {
   class_name: "",
@@ -19,6 +20,7 @@ const initialClass = {
 };
 
 const InstructorLanding = (props) => {
+  const { username } = props.userInfo;
   const [teachingClasses, setTeachingClasses] = useState([]);
   const [openPopup, setOpenPopup] = useState(false);
   const [newClass, setNewClass] = useState(initialClass);
@@ -59,6 +61,10 @@ const InstructorLanding = (props) => {
     setTeachingClasses(classes);
     setNewClass(initialClass);
     setOpenPopup(false);
+  };
+
+  const searchOnClick = () => {
+    // history.push(search page link);
   };
 
   const createOnClick = () => {
@@ -110,8 +116,7 @@ const InstructorLanding = (props) => {
 
   return (
     <div className="instructor-landing">
-      <h2>{con.getWelcomeMessage()}</h2>
-      <h2>user_id={con.getUserID()}</h2>
+      <h2>Welcome {username}!</h2>
       <Link to="/search">Search classes</Link>
       <button onClick={createOnClick}>Create a class</button>
       <Popup trigger={openPopup} open={setOpenPopup}>
