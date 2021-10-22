@@ -95,7 +95,7 @@ const ClientLanding = (props) => {
         return <p>{JSON.stringify(each)}</p>;
       })}
       <p>===========================================</p>
-      <p>length of reservedClass is {reservedClasses.length}</p>
+      {reservedClasses.length}
       {reservedClasses.map((each) => {
         return <p>{JSON.stringify(each)}</p>;
       })}
