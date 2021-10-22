@@ -162,7 +162,7 @@ const InstructorLanding = (props) => {
       <h2>Your Classes</h2>
       <div className="instructor-classes">
         {teachingClasses.length === 0 ? (
-          <h2>You don't any classes scheduled.</h2>
+          <h2>You don't have any classes scheduled.</h2>
         ) : (
           teachingClasses.map((_class) => (
             <ClassDetails
