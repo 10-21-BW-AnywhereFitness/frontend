@@ -112,33 +112,39 @@ const InstructorLanding = (props) => {
     <div className="instructor-landing">
       <h2>{con.getWelcomeMessage()}</h2>
       <h2>user_id={con.getUserID()}</h2>
-      <Link to="/search">Search classes</Link>
-      <button onClick={createOnClick}>Create a class</button>
-      <Popup trigger={openPopup} open={setOpenPopup}>
-        <h3>{editMode ? "Edit Class" : "Create A Class"}</h3>
-        <ClassForm
-          newClass={newClass}
-          change={onChange}
-          submit={onSubmit}
-          open={setOpenPopup}
-        />
-      </Popup>
+
+      <div className='button-container'>
+        <button><Link to="/search">Search classes</Link></button>
+        <button onClick={createOnClick}>Create a class</button>
+        <Popup trigger={openPopup} open={setOpenPopup}>
+          <h3>{editMode ? "Edit Class" : "Create A Class"}</h3>
+          <ClassForm
+            newClass={newClass}
+            change={onChange}
+            submit={onSubmit}
+            open={setOpenPopup}
+          />
+        </Popup>
+      </div>
+
+      <div className='classes-container'>
       <h2>Your Classes</h2>
-      <div className="instructor-classes">
-        {teachingClasses.length === 0 ? (
-          <h2>Getting your classes...</h2>
-        ) : (
-          teachingClasses.map((_class) => (
-            <ClassDetails
-              key={_class.class_id}
-              _class={_class}
-              instructor={true}
-              edit={editOnClick}
-              remove={removeClass}
-              popupOpen={openPopup}
-            />
-          ))
-        )}
+        <div className="instructor-classes">
+          {teachingClasses.length === 0 ? (
+            <h2>Getting your classes...</h2>
+            ) : (
+            teachingClasses.map((_class) => (
+              <ClassDetails
+                key={_class.class_id}
+                _class={_class}
+                instructor={true}
+                edit={editOnClick}
+                remove={removeClass}
+                popupOpen={openPopup}
+              />
+            ))
+          )}
+        </div>  
       </div>
     </div>
   );

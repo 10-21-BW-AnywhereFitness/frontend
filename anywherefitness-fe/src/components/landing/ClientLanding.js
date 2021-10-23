@@ -29,6 +29,7 @@ const ClientLanding = (props) => {
 
   return (
     <div className="client-landing">
+
       <h2 className="text-center">{con.getWelcomeMessage()}</h2>
 
       <p>===============Available Classes=============</p>

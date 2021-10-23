@@ -49,7 +49,7 @@ export default function CreateUserForm(props) {
   };
 
   return (
-    <Container>
+    <Container className='login-container'>
       <Form onSubmit={cb_onSubmit}>
         <label>
           {" "}
@@ -99,7 +99,7 @@ export default function CreateUserForm(props) {
           </select>
         </label>
 
-        <button>Create New User</button>
+        <button className='button'>Create New User</button>
         {state.error && (
           <p>
             <b>error message : </b>

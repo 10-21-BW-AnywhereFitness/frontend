@@ -8,9 +8,10 @@ export default function NavBar() {
   const history = useHistory();
   return (
     <div className="nav-bar">
-      <Link to="/" style={{ textDecoration: "none" }}>
+      <Link to="/">
         Home
       </Link>
+
       {GlobalState.role_id === 2 ? (
         <Link to="/client" style={{ textDecoration: "none" }}>
           Client
