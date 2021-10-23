@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import styled from "styled-components";
 import { API_Call_loginService } from "../api/api_calls";
 import * as con from "../constant/constant";
 import { useHistory } from "react-router-dom";
+import ContextObject from "../context/context";
 
 const Container = styled.div`
   border: solid 1px black;
@@ -20,6 +21,7 @@ export default function LoginForm(props) {
   };
   const history = useHistory();
   const [state, setState] = useState(initialState);
+  const { GlobalState, set_GlobalState } = useContext(ContextObject);
 
   const cb_onSubmit = (event) => {
     event.preventDefault();
@@ -31,6 +33,13 @@ export default function LoginForm(props) {
         con.setRole(res.data.role_id);
         con.setUserID(res.data.user_id);
         con.setWelcomeMessage(res.data.message);
+        set_GlobalState({
+          ...GlobalState,
+          token: res.data.token,
+          user_id: res.data.user_id,
+          role_id: res.data.role_id,
+          welcomeMessage: res.data.welcomeMessage,
+        });
         if (res.data.role_id === 1) {
           history.push("/instructor");
         } else {
@@ -79,13 +88,10 @@ export default function LoginForm(props) {
             onChange={cb_onChange}
           />
         </label>
-        
-        <button className='button'>Submit</button>
-        </Form>
-      {/* <p>welcome message = {con.getWelcomeMessage}</p>
-      <p>token = {con.getToken}</p>
-      <p>user_id={con.getUserID}</p>
-      <p>user_role={con.getRole}</p> */}
+
+
+        <button>Submit</button>
+      </Form>
     </Container>
   );
 }
